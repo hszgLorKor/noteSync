@@ -1,6 +1,3 @@
-# noteSync
-
---------------------------
 /project-root
   /frontend                 # Frontend application (Vue)
     /src
