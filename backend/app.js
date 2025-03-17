@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 const path = require('path');
 dotenv.config({ path: path.join(__dirname, '/.env') });
 const PORT = process.env.PORT;
-
+//TEST keine AHnung was
 const jwt = require('jsonwebtoken');
 
 // Middleware: parse JSON bodies
