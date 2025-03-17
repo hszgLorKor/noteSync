@@ -6,11 +6,20 @@ const dotenv = require('dotenv');
 const path = require('path');
 dotenv.config({ path: path.join(__dirname, '/.env') });
 const PORT = process.env.PORT;
-//TEST keine AHnung was
 const jwt = require('jsonwebtoken');
+
+const cors = require('cors');
 
 // Middleware: parse JSON bodies
 app.use(express.json());
+
+// Use the CORS middleware
+app.use(cors({
+    origin: 'http://localhost:5173', // Allow requests from your frontend's URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods
+    credentials: true // If using cookies or HTTP authentication
+}));
+
 
 // Test route to confirm backend is working
 app.get('/ping', (req, res) => {
@@ -18,12 +27,13 @@ app.get('/ping', (req, res) => {
 });
 
 //Test login endpoint
-app.get('/login', (req, res) => {
+app.post('/login', (req, res) => {
     const { username, password } = req.body;
+    console.log(username, password);
 //TODO check in database if username & password correct
     //TODO CHECK for sql injection
     if (2 > 1) {
-        res.status(200).json({
+            res.status(200).json({
             message: 'Login successful',
             token: generateToken(username)
         });
