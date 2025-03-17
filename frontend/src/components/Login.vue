@@ -23,8 +23,6 @@
                 alert(data.error);
             } else {
                 localStorage.setItem('token', data.token);
-                location.href = '/dashboard';
-                console.log(data);
             }
         });
     }
