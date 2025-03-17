@@ -8,7 +8,16 @@
     function login(e) {
         e.preventDefault();
 
-        console.log(username.value, password.value);
+        fetch('http://localhost:3000/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: username.value,
+                password: password.value
+            })
+        })
     }
 </script>
 
