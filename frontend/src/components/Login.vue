@@ -6,6 +6,8 @@ import { useRouter } from 'vue-router';
 const username = ref('');
 const password = ref('');
 const router = useRouter();
+const showError = ref(false);
+const errorMessage = ref('');
 
 function login(e) {
     e.preventDefault();
@@ -22,6 +24,8 @@ function login(e) {
     }).then(res => {
         if (res.status === 401) {
             throw new Error('Invalid credentials');
+            showError.value = true;
+            errorMessage.value = 'Invalid credentials';
         } else {
             return res.json();
         }
@@ -52,6 +56,7 @@ function login(e) {
                 <label for="password">Passwort:</label>
                 <input type="password" required v-model="password" placeholder="Password" id="password" />
             </p>
+            <p v-if="showError" style="color: red;">{{ errorMessage }}</p>
             <button>Login</button>
         </form>
     </div>
