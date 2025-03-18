@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import Sidebar from './Sidebar.vue'
 import Header from './Header.vue'
-import Home from './Home.vue'
 
 const name = ref('Dashboard')
 </script>

@@ -8,9 +8,32 @@ const semesterList = ref([
     { id: 4, name: 'Semester 4', showSubjects: false },
 ])
 
+const subjects = ref([
+    { id: 1, name: 'Mathematics', semesterId: 1 },
+    { id: 2, name: 'Physics', semesterId: 1 },
+    { id: 3, name: 'Chemistry', semesterId: 1 },
+    { id: 4, name: 'Biology', semesterId: 1 },
+    { id: 5, name: 'Computer Science', semesterId: 2 },
+    { id: 6, name: 'English', semesterId: 2 },
+    { id: 7, name: 'History', semesterId: 2 },
+    { id: 8, name: 'Geography', semesterId: 2 },
+    { id: 9, name: 'Economics', semesterId: 3 },
+    { id: 10, name: 'Accounting', semesterId: 3 },
+    { id: 11, name: 'Business Studies', semesterId: 3 },
+    { id: 12, name: 'Marketing', semesterId: 3 },
+    { id: 13, name: 'Sociology', semesterId: 4 },
+    { id: 14, name: 'Psychology', semesterId: 4 },
+    { id: 15, name: 'Political Science', semesterId: 4 },
+    { id: 16, name: 'Philosophy', semesterId: 4 },
+])
+
 function showSubjects(id) {
     const sem = semesterList.value.find(sem => sem.id === id)
     sem.showSubjects = !sem.showSubjects
+}
+
+function getSubjects(id) {
+    return subjects.value.filter(sub => sub.semesterId === id)
 }
 
 </script>
@@ -43,6 +66,30 @@ svg {
     height: 24px;
     margin-right: 12px;
 }
+
+ul.subjects-list {
+    margin-inline: var(--spacing-normal) 0;
+    border-left: 1px solid var(--color-black);
+}
+
+ul.subjects-list li {
+    background-color: #f0f0f0;
+    margin-block: var(--spacing-small) 0;
+    padding: 6px 12px;
+    border-radius: 4px;
+    position: relative;
+}
+
+ul.subjects-list li::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -12px;
+    transform: translateY(-50%);
+    width: 7%;
+    height: 2px;
+    background-color: var(--color-black);
+}
 </style>
 <template>
     <aside>
@@ -52,7 +99,8 @@ svg {
         <ul class="semester-list">
             <li v-for="sem in semesterList" :key="sem.id">
                 <RouterLink to='/dashboard' @click="showSubjects(sem.id)">
-                    <svg v-if="sem.showSubjects" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(0)">
+                    <svg v-if="sem.showSubjects" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        transform="rotate(0)">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                         <g id="SVGRepo_iconCarrier">
@@ -72,6 +120,11 @@ svg {
                     </svg>
                     {{ sem.name }}
                 </RouterLink>
+                <ul v-if="sem.showSubjects" class="subjects-list">
+                    <li v-for="sub in getSubjects(sem.id)" :key="sub.id">
+                        <RouterLink to='/dashboard'>{{ sub.name }}</RouterLink>
+                    </li>
+                </ul>
             </li>
         </ul>
     </aside>
