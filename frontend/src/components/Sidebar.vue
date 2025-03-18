@@ -42,6 +42,9 @@ function getSubjects(id) {
 aside {
     background-color: #fff;
     border-right: 1px solid #ccc;
+    overflow-y: auto;
+    height: calc(100vh - var(--header-height));
+    height: calc(100dvh - var(--header-height));
 }
 
 ul {
