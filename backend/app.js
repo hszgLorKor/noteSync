@@ -1,4 +1,6 @@
 // /backend/app.js
+import {isSafe} from './utils/dbInjectionChecker'
+
 const express = require('express');
 const app = express();
 
@@ -31,13 +33,17 @@ app.post('/login', (req, res) => {
     const { username, password } = req.body;
     console.log(username, password);
 //TODO check in database if username & password correct
-    //TODO CHECK for sql injection
-    if (2 > 1) {
+    if (isSafe(username) && isSafe(password)) {
+        if (2 > 1) {
             res.status(200).json({
-            message: 'Login successful',
-            token: generateToken(username)
-        });
+                message: 'Login successful',
+                token: generateToken(username)
+            });
 
+        }
+        else {
+            res.status(401).send({message : 'Email or password incorrect' });
+        }
     }
     else {
         res.status(401).send({message : 'Email or password incorrect' });
