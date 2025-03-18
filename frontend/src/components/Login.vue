@@ -23,9 +23,9 @@ function login(e) {
         })
     }).then(res => {
         if (res.status === 401) {
-            throw new Error('Invalid credentials');
             showError.value = true;
             errorMessage.value = 'Invalid credentials';
+            throw new Error('Invalid credentials');
         } else {
             return res.json();
         }
