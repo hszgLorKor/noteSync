@@ -7,6 +7,7 @@ import cors from 'cors';
 import { fileURLToPath } from 'url';
 import { isSafe } from './utils/dbInjectionChecker.js';
 import { generateToken} from "./utils/generateJWTToken.js";
+import setupRoutes from './utils/routesSetup.js';
 
 // Fix __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -19,6 +20,8 @@ const PORT = process.env.PORT;
 const app = express();
 // Middleware: parse JSON bodies
 app.use(express.json());
+
+setupRoutes(app);
 
 const loginLimiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
@@ -34,12 +37,6 @@ app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods
     credentials: true // If using cookies or HTTP authentication
 }));
-
-
-// Test route to confirm backend is working
-app.get('/ping', (req, res) => {
-    res.json({ message: 'pong' });
-});
 
 //Test login endpoint
 app.post('/login', (req, res) => {
