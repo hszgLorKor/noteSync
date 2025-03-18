@@ -2,7 +2,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
-import jwt from 'jsonwebtoken';
+import rateLimit from 'express-rate-limit';
 import cors from 'cors';
 import { fileURLToPath } from 'url';
 import { isSafe } from './utils/dbInjectionChecker.js';
@@ -19,6 +19,14 @@ const PORT = process.env.PORT;
 const app = express();
 // Middleware: parse JSON bodies
 app.use(express.json());
+
+const loginLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 10, // Limit each IP to 10 requests per 15 minutes
+    message: "Too many login attempts. Please try again later."
+});
+
+app.use('/login', loginLimiter); // Apply to your login route
 
 // Use the CORS middleware
 app.use(cors({
@@ -53,7 +61,6 @@ app.post('/login', (req, res) => {
     else {
         res.status(401).send({message : 'Email or password incorrect' });
     }
-    //TODO Token with JWT -> expiration 1h -> 4 level? (viewer, poster, moderator, admin) -> use https for token transit
 })
 
 // Placeholder for file upload/download routes later
