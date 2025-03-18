@@ -7,25 +7,32 @@ const name = ref('Dashboard')
 </script>
 
 <style scoped>
-div {
+div.wrapper {
     display: grid;
     grid-template-rows: 72px 1fr;
     height: 100vh;
     height: 100dvh;
 }
 
-main {
+.sidebar-main-wrapper {
     display: grid;
     grid-template-columns: 200px 1fr;
+}
+
+main {
+    padding: 20px;
+    overflow-y: auto;
 }
 </style>
 
 <template>
-    <div>
+    <div class="wrapper">
         <Header />
-        <main>
+        <div class="sidebar-main-wrapper">
             <Sidebar />
-            <h1>Welcome to {{ name }}</h1>
-        </main>
+            <main>
+                <h1>Welcome to {{ name }}</h1>
+            </main>
+        </div>
     </div>
 </template>
