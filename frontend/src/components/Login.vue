@@ -1,31 +1,36 @@
 <script setup>
 
-    import { ref } from 'vue';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
-    const username = ref('');
-    const password = ref('');
+const username = ref('');
+const password = ref('');
+const router = useRouter();
 
-    function login(e) {
-        e.preventDefault();
+function login(e) {
+    e.preventDefault();
 
-        fetch('http://localhost:3000/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                username: username.value,
-                password: password.value
-            })
-        }).then(res => res.json()).
+    fetch('http://localhost:3000/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            username: username.value,
+            password: password.value
+        })
+    }).then(res => res.json()).
         then(data => {
             if (data.error) {
                 alert(data.error);
             } else {
                 localStorage.setItem('token', data.token);
+                router.push('/dashboard');
+                console.log(data);
             }
         });
-    }
+
+}
 </script>
 
 <template>
