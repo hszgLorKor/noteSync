@@ -19,16 +19,23 @@ function login(e) {
             username: username.value,
             password: password.value
         })
-    }).then(res => res.json()).
-        then(data => {
-            if (data.error) {
-                alert(data.error);
-            } else {
-                localStorage.setItem('token', data.token);
-                router.push('/dashboard');
-                console.log(data);
-            }
-        });
+    }).then(res => {
+        if (res.status === 401) {
+            throw new Error('Invalid credentials');
+        } else {
+            return res.json();
+        }
+    }).
+    then(data => {
+        console.log(data);
+        if (data.error) {
+            alert(data.error);
+        } else {
+            localStorage.setItem('token', data.token);
+            router.push('/dashboard');
+            console.log(data);
+        }
+    });
 
 }
 </script>
