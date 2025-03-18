@@ -51,7 +51,7 @@ ul {
     padding: 6px 12px;
 }
 
-li {
+ul.semester-list li {
     background-color: skyblue;
     width: 100%;
     margin-block: 0 12px;
@@ -103,6 +103,11 @@ ul.subjects-list li::before {
     width: 7%;
     height: 2px;
     background-color: var(--color-black);
+    transition: background-color 225ms ease;
+}
+
+ul.subjects-list li:hover {
+    background-color: #e0e0e0;
 }
 </style>
 <template>

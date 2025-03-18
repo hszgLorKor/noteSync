@@ -3,8 +3,9 @@
 }
 
 :root {
-  --header-height: 72px;
+  --header-height: 56px;
   --sidebar-width: 240px;
+  --spacing-tiny: 4px;
   --spacing-small: 8px;
   --spacing-normal: 16px;
   --spacing-medium: 32px;
