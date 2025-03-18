@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken';
 import cors from 'cors';
 import { fileURLToPath } from 'url';
 import { isSafe } from './utils/dbInjectionChecker.js';
-import { generateToken} from "./utils/generateJWTToken";
+import { generateToken} from "./utils/generateJWTToken.js";
 
 // Fix __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
