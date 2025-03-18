@@ -71,8 +71,19 @@ svg {
 }
 
 ul.subjects-list {
-    margin-inline: var(--spacing-normal) 0;
-    border-left: 1px solid var(--color-black);
+    margin-inline: 12px 0;
+    position: relative;
+}
+
+ul.subjects-list::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 1px;
+    height: calc(100% - 23px);
+    background-color: var(--color-black);
 }
 
 ul.subjects-list li {
