@@ -1,10 +1,12 @@
 <style scoped>
 header {
+    display: flex;
+    align-items: center;
+    padding: 0 var(--spacing-medium);
     background-color: #fff;
-    color: white;
-    padding: 1rem;
+    color: var(--color-white);
     border-bottom: 1px solid #ccc;
-    color: #000;
+    color: var(--color-black);
 }
 </style>
 
