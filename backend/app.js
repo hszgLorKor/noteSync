@@ -1,17 +1,21 @@
 // /backend/app.js
-import {isSafe} from './utils/dbInjectionChecker'
+import express from 'express';
+import dotenv from 'dotenv';
+import path from 'path';
+import jwt from 'jsonwebtoken';
+import cors from 'cors';
+import { fileURLToPath } from 'url';
+import { isSafe } from './utils/dbInjectionChecker.js';
 
-const express = require('express');
-const app = express();
+// Fix __dirname in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-const dotenv = require('dotenv');
-const path = require('path');
+// Load environment variables
 dotenv.config({ path: path.join(__dirname, '/.env') });
+
 const PORT = process.env.PORT;
-const jwt = require('jsonwebtoken');
-
-const cors = require('cors');
-
+const app = express();
 // Middleware: parse JSON bodies
 app.use(express.json());
 
