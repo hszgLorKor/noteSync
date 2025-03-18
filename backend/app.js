@@ -6,6 +6,7 @@ import jwt from 'jsonwebtoken';
 import cors from 'cors';
 import { fileURLToPath } from 'url';
 import { isSafe } from './utils/dbInjectionChecker.js';
+import { generateToken} from "./utils/generateJWTToken";
 
 // Fix __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -57,21 +58,6 @@ app.post('/login', (req, res) => {
 
 // Placeholder for file upload/download routes later
 //TODO file upload with multer
-
-function generateToken(username) {
-    // Assume the user object has properties: username and role
-    //TODO connect to database and retrieve information -> creating a jwt Token using it
-    const payload = {
-        userid: username,          // userid: the unique identifier of the user
-        role: username,       // role of the user (e.g., 'admin', 'viewer', 'editor', 'poster')
-        iat: Date.now(), // issued at time
-    };
-
-    console.log(payload);
-    // Sign the token with a secret and set an expiration time
-    return jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
-}
-
 
 app.listen(PORT, () => {
     console.log(`Backend running on port ${PORT}`);

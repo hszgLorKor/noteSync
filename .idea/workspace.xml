@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="988d13d6-e650-433c-9fa8-66c73ca19408" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/utils/generateJWTToken.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app.js" afterDir="false" />
     </list>
@@ -66,7 +67,7 @@
       <option name="presentableId" value="Default" />
       <updated>1742225719887</updated>
       <workItem from="1742225721097" duration="4429000" />
-      <workItem from="1742280365285" duration="4507000" />
+      <workItem from="1742280365285" duration="5918000" />
     </task>
     <servers />
   </component>
