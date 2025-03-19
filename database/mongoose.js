@@ -31,4 +31,4 @@ const LogIngSchema = new mongoose.Schema({
 const collection = mongoose.model("Collection1", LogIngSchema);
 
 // Export the collection for use in other files
-module.exports = collection;
+module.exports = {collection};
