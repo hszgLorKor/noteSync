@@ -1,5 +1,4 @@
 <script setup>
-
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
@@ -43,24 +42,6 @@ function login(e) {
 }
 </script>
 
-<template>
-    <div class="login-wrapper">
-        <h1>Login</h1>
-        <form @submit="login">
-            <p>
-                <label for="username">Benutzer Name:</label>
-                <input type="text" required v-model="username" placeholder="Username" id="username" />
-            </p>
-            <p>
-                <label for="password">Passwort:</label>
-                <input type="password" required v-model="password" placeholder="Password" id="password" />
-            </p>
-            <p v-if="showError" style="color: red;">{{ errorMessage }}</p>
-            <button>Login</button>
-        </form>
-    </div>
-</template>
-
 <style scoped>
 .login-wrapper {
     display: flex;
@@ -89,3 +70,21 @@ form label {
     font-size: 0.9em;
 }
 </style>
+
+<template>
+    <div class="login-wrapper">
+        <h1>Login</h1>
+        <form @submit="login">
+            <p>
+                <label for="username">Benutzer Name:</label>
+                <input type="text" required v-model="username" placeholder="Username" id="username" />
+            </p>
+            <p>
+                <label for="password">Passwort:</label>
+                <input type="password" required v-model="password" placeholder="Password" id="password" />
+            </p>
+            <p v-if="showError" style="color: red;">{{ errorMessage }}</p>
+            <button>Login</button>
+        </form>
+    </div>
+</template>

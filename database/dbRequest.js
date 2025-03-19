@@ -31,4 +31,4 @@ function roleCheck(username){
     return user.role;
 
 }
-module.exports = { loginCheck, roleCheck };
+export {loginCheck, roleCheck};

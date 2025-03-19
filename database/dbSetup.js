@@ -16,4 +16,5 @@ async function connect() {
         console.error(e);
     }
 }
-module.exports = { connect };
+
+export { connect };

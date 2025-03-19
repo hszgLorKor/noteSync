@@ -35,7 +35,6 @@ function showSubjects(id) {
 function getSubjects(id) {
     return subjects.value.filter(sub => sub.semesterId === id)
 }
-
 </script>
 
 <style scoped>
@@ -83,7 +82,7 @@ ul.subjects-list::before {
     bottom: 0;
     width: 1px;
     height: calc(100% - 23px);
-    background-color: var(--color-black);
+    background-color: var(--color-gray);
 }
 
 ul.subjects-list li {
@@ -101,8 +100,8 @@ ul.subjects-list li::before {
     left: -12px;
     transform: translateY(-50%);
     width: 7%;
-    height: 2px;
-    background-color: var(--color-black);
+    height: 1px;
+    background-color: var(--color-gray);
     transition: background-color 225ms ease;
 }
 

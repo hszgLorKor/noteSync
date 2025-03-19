@@ -12,4 +12,4 @@ const comparePassword = async (password, hash) => {
     return isMatch;
 };
 
-module.exports = { hashPassword, comparePassword };
+export { hashPassword, comparePassword };
