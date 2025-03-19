@@ -15,7 +15,7 @@ router.use(cors({
 }));
 
 // Define your routes
-router.get('/', authenticateJWT, authorizeRoles("viewer", "student", "moderator", "admin"), (req, res) => {
+router.get('/', authenticateJWT, authorizeRoles("viewer", "student", "admin"), (req, res) => {
     res.status(200).send('Auth Route');
 });
 
