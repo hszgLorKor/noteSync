@@ -3,7 +3,6 @@ import { isSafe } from '../utils/dbInjectionChecker.js';
 import {generateToken} from "../utils/generateJWTToken.js";
 import rateLimit from "express-rate-limit";
 import cors from "cors";
-import {comparePassword} from "../middleware/passwordHash.js";
 
 const router = Router();
 
@@ -27,7 +26,6 @@ router.post('/', (req, res) => {
     const { username, password } = req.body;
     console.log(username, password);
 //TODO check in database if username & password correct
-    //TODO compare using bcryptjs compare function from password hash
     if (isSafe(username) && isSafe(password)) {
         if (2 > 1) {
             res.status(200).json({
