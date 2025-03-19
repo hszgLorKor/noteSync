@@ -6,7 +6,7 @@ export function generateToken(username) {
     //TODO Token with JWT -> expiration 1h -> 4 level? (viewer, poster, moderator, admin) -> use https for token transit
     const payload = {
         userid: username,          // userid: the unique identifier of the user
-        role: username,       // role of the user (e.g., 'admin', 'viewer', 'editor', 'poster')
+        role: "viewer",       // role of the user (e.g., 'admin', 'viewer', 'editor', 'poster')
         iat: Date.now(), // issued at time
     };
 

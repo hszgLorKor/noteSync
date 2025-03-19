@@ -30,8 +30,18 @@ const authenticateJWT = (req, res, next) => {
     }
 };
 
+const authorizeRoles = (...allowedRoles) => {
+    return (req, res, next) => {
+        if (!req.user || !allowedRoles.includes(req.user.role)) {
+            return res.status(403).json({ message: "Forbidden: You don't have permission" });
+        }
+        next();
+    };
+};
+
+
 // Define your routes
-router.get('/', authenticateJWT, (req, res) => {
+router.get('/', authenticateJWT, authorizeRoles("viewer", "student", "moderator", "admin"), (req, res) => {
     res.send('Auth Route');
 });
 
