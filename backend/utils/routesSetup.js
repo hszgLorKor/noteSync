@@ -2,7 +2,7 @@ import testRoutes from '../routes/testRoutes.js';
 import fileRoutes from '../routes/fileRoutes.js';
 import infoRoutes from '../routes/infoRoutes.js';
 import authRoutes from '../routes/authRoutes.js';
-import loginRoutes from "../routes/loginRoutes.js";
+import loginRoutes from '../routes/loginRoutes.js';
 
 export default function setupRoutes(app) {
     app.use('/ping', testRoutes); // test route
