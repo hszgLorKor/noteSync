@@ -1,10 +1,11 @@
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
+import req from "express/lib/request.js";
 
 dotenv.config();
 
 export const authenticateJWT = (req, res, next) => {
-    const token = req.header("Authorization")?.split(" ")[1]; // Expect "Bearer <token>"
+    const token = req.cookies.authToken;
 
     if (!token) {
         return res.status(401).json({ message: "Access Denied. No token provided." });

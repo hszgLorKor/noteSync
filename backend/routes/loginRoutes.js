@@ -28,10 +28,17 @@ router.post('/', (req, res) => {
 //TODO check in database if username & password correct
     if (isSafe(username) && isSafe(password)) {
         if (2 > 1) {
+            const token = generateToken(username);
+            res.cookie('authToken', token, {
+                httpOnly: true, // Prevent access by JavaScript
+                secure: true,   // Ensures the cookie is only sent over HTTPS
+                sameSite: 'strict', // Protects against CSRF (set to 'Lax' or 'Strict' as needed)
+                maxAge: 3600000    // Optional: Set cookie expiration (in milliseconds)
+            });
             res.status(200).json({
                 message: 'Login successful',
-                token: generateToken(username)
             });
+
 
         }
         else {
