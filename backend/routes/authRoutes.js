@@ -2,7 +2,7 @@ import { Router } from 'express';
 const router = Router();
 
 // Define your routes
-router.get('/auth', (req, res) => {
+router.get('/', (req, res) => {
     res.send('Auth Route');
 });
 

@@ -2,7 +2,7 @@ import { Router } from 'express';
 const router = Router();
 
 // Define your routes
-router.get('/file', (req, res) => {
+router.get('/', (req, res) => {
     res.send('file Route');
 });
 
