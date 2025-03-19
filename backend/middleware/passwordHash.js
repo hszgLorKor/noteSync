@@ -14,4 +14,4 @@ const comparePassword = async (password, hash) => {
 
 module.exports = { hashPassword, comparePassword };
 
-//TODO move this module to database
+//TODO move this module to database!
