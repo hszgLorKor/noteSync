@@ -2,11 +2,8 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
-import rateLimit from 'express-rate-limit';
 import cors from 'cors';
 import { fileURLToPath } from 'url';
-import { isSafe } from './utils/dbInjectionChecker.js';
-import { generateToken} from "./utils/generateJWTToken.js";
 import setupRoutes from './utils/routesSetup.js';
 
 // Fix __dirname in ES modules
