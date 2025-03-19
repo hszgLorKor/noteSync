@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="988d13d6-e650-433c-9fa8-66c73ca19408" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/middleware/passwordHash.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/middleware/passwordHash.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/loginRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/loginRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/utils/generateJWTToken.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/utils/generateJWTToken.js" afterDir="false" />
-    </list>
+    <list default="true" id="988d13d6-e650-433c-9fa8-66c73ca19408" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,6 +20,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "KapMeow"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/hszgLorKor/noteSync.git",
+    "accountId": "8ff5302f-c78a-4414-afcb-774a6b783b70"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -41,7 +48,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/loren/files/projects/mci/notesync",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/kayse/Desktop/LolleNischanProj/noteSync",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -72,6 +80,7 @@
       <workItem from="1742280365285" duration="11753000" />
       <workItem from="1742299317872" duration="2557000" />
       <workItem from="1742370056100" duration="8404000" />
+      <workItem from="1742384326300" duration="298000" />
     </task>
     <servers />
   </component>
