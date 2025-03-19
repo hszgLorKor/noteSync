@@ -22,7 +22,7 @@ function getDashboard() {
     })
 }
 
-dashboard()
+getDashboard()
 </script>
 
 <style scoped>
