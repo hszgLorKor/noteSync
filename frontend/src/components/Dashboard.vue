@@ -1,9 +1,27 @@
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router';
 import Sidebar from './Sidebar.vue'
 import Header from './Header.vue'
 
 const name = ref('Dashboard')
+const router = useRouter();
+
+function getDashboard() {
+    fetch('http://localhost:3000/dashboard', {
+        method: 'GET',
+        credentials: 'include'
+    }).then(res => {
+        if (res.status === 401) {
+            router.push('/login')
+        } else {
+            return res.json()
+        }
+    }).then(data => {
+        console.log(data)
+    })
+}
+
 </script>
 
 <style scoped>
