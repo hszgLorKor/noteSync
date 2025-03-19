@@ -22,6 +22,7 @@ function getDashboard() {
     })
 }
 
+dashboard()
 </script>
 
 <style scoped>
