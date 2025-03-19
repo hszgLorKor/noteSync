@@ -31,14 +31,13 @@ router.post('/', (req, res) => {
             const token = generateToken(username);
             res.cookie('authToken', token, {
                 httpOnly: true, // Prevent access by JavaScript
-                secure: true,   // Ensures the cookie is only sent over HTTPS
-                sameSite: 'strict', // Protects against CSRF (set to 'Lax' or 'Strict' as needed)
+                secure: false,   // Ensures the cookie is only sent over HTTPS
+                sameSite: 'lax', // Protects against CSRF (set to 'Lax' or 'Strict' as needed)
                 maxAge: 3600000    // Optional: Set cookie expiration (in milliseconds)
             });
             res.status(200).json({
                 message: 'Login successful',
             });
-
 
         }
         else {

@@ -10,7 +10,6 @@ export function generateToken(username) {
         iat: Date.now(), // issued at time
     };
 
-    console.log(payload);
     // Sign the token with a secret and set an expiration time
     return jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
 }

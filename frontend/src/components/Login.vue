@@ -19,7 +19,8 @@ function login(e) {
         body: JSON.stringify({
             username: username.value,
             password: password.value
-        })
+        }),
+      credentials: 'include'
     }).then(res => {
         if (res.status === 401) {
             showError.value = true;
