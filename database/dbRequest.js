@@ -1,5 +1,5 @@
 import {comparePassword} from './utils.js';
-import collection from './mongoose.js';
+import { collection } from './mongoose.js';
 async function loginCheck(username, password) {
     //anfrage an mongodb ob username existiert
     try {

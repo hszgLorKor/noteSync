@@ -1,5 +1,5 @@
-const mongoose = require('mongoose'); // Using CommonJS syntax
-const { Router } = require('express'); // Import Router only if required
+import { mongoose } from 'mongoose'; // Using ES6 syntax
+import { Router } from 'express'; // Import Router only if required
 
 // Connect to MongoDB
 mongoose.connect("mongodb://localhost:27017/TestLogin", { useNewUrlParser: true, useUnifiedTopology: true })
