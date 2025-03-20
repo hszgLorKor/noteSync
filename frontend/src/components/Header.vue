@@ -1,3 +1,15 @@
+<script setup>
+import { ref } from 'vue'
+
+const emit = defineEmits(['toggle-sidebar'])
+const toggleSidebar = ref(true)
+
+function toggleSidebarFunc() {
+    toggleSidebar.value = !toggleSidebar.value
+    emit('toggle-sidebar', toggleSidebar)
+}
+
+</script>
 <style scoped>
 header {
     display: flex;
@@ -9,6 +21,7 @@ header {
     border-bottom: 1px solid #ccc;
     color: var(--color-black);
 }
+
 .links-list {
     display: flex;
     gap: var(--spacing-medium);
@@ -24,6 +37,7 @@ header {
 
 <template>
     <header>
+        <button @click="toggleSidebarFunc()">Toggle Sidebar</button>
         <h4>Header</h4>
         <ul class="links-list">
             <li><router-link to="/">Home</router-link></li>

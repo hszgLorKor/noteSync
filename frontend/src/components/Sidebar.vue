@@ -35,6 +35,11 @@ function showSubjects(id) {
 function getSubjects(id) {
     return subjects.value.filter(sub => sub.semesterId === id)
 }
+
+const props = defineProps({
+    toggleSidebar: Boolean
+})
+
 </script>
 
 <style scoped>
@@ -110,10 +115,7 @@ ul.subjects-list li:hover {
 }
 </style>
 <template>
-    <aside>
-        <header>
-
-        </header>
+    <aside v-if="toggleSidebar">
         <ul class="semester-list">
             <li v-for="sem in semesterList" :key="sem.id">
                 <RouterLink to='/dashboard' @click="showSubjects(sem.id)">

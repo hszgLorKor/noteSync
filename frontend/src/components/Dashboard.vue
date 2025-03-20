@@ -6,6 +6,7 @@ import Header from './Header.vue'
 
 const name = ref('Dashboard')
 const router = useRouter();
+const toggleSidebarRef = ref(true)
 
 function getDashboard() {
     fetch('http://localhost:3000/dashboard', {
@@ -22,7 +23,10 @@ function getDashboard() {
     })
 }
 
-getDashboard()
+function toggleTest(val) {
+    toggleSidebarRef.value = val.value
+}
+
 </script>
 
 <style scoped>
@@ -46,9 +50,9 @@ main {
 
 <template>
     <div class="wrapper">
-        <Header />
+        <Header @toggle-sidebar="(val) => toggleTest(val)"/>
         <div class="sidebar-main-wrapper">
-            <Sidebar />
+            <Sidebar :toggleSidebar="toggleSidebarRef" />
             <main>
                 <h1>Welcome to {{ name }}</h1>
             </main>
