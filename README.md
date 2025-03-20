@@ -45,7 +45,7 @@ This structure separates concerns and organizes files by functionality, making i
 │   └── package.json \
 │ \
 ├── /database \
-│   └── seed.js \
+│   └── mongoose.js \
 │ \
 ├── /docs \
 │   └── README.md \
