@@ -6,6 +6,7 @@ import cors from 'cors';
 import { fileURLToPath } from 'url';
 import setupRoutes from './utils/routesSetup.js';
 import cookieParser from 'cookie-parser';
+import multer from 'multer';
 
 
 // Fix __dirname in ES modules
@@ -29,8 +30,17 @@ app.use(cors({
     credentials: true // If using cookies or HTTP authentication
 }));
 
-// Placeholder for file upload/download routes later
-//TODO file upload with multer
+// Configure storage options
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads/'); // Directory to save uploaded files
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + '-' + file.originalname); // Rename the file
+    }
+});
+
+const upload = multer({ storage: storage });
 
 app.listen(PORT, () => {
     console.log(`Backend running on port ${PORT}`);
