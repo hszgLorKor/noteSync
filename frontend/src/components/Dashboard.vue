@@ -23,6 +23,8 @@ function getDashboard() {
     })
 }
 
+getDashboard();
+
 function toggleTest(val) {
     toggleSidebarRef.value = val.value
 }
