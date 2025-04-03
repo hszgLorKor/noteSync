@@ -1,5 +1,4 @@
-import { mongoose } from 'mongoose'; // Using ES6 syntax
-import { Router } from 'express'; // Import Router only if required
+import mongoose from 'mongoose';
 
 // Connect to MongoDB
 mongoose.connect("mongodb://localhost:27017/TestLogin", { useNewUrlParser: true, useUnifiedTopology: true })
@@ -12,23 +11,21 @@ mongoose.connect("mongodb://localhost:27017/TestLogin", { useNewUrlParser: true,
 
 // Define the schema with predefined roles and default role
 const LogIngSchema = new mongoose.Schema({
-    username: {
-        type: String,
-        required: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
-    role: {
-        type: String,
-        enum: ["viewer", "student", "admin"], // Predefined roles
-        default: "viewer" // Default role
-    }
+    username: { type: String, required: true },
+    password: { type: String, required: true },
+    role: { type: String, enum: ["viewer", "student", "admin"], default: "viewer" }
 });
 
-// Create the model from the schema
-const collection = mongoose.model("Collection1", LogIngSchema);
+const StundenplanSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    raum: { type: String, required: true },
+    vorlesung_seminar: { type: String, required: true },
+    anmerkung: { type: String, default: '' },
+    findet_statt: { type: Boolean, required: true }, // Hier war der Tippfehler
+});
 
-// Export the collection for use in other files
-export { collection };
+
+const collection = mongoose.model("Collection1", LogIngSchema);
+const Stundenplan = mongoose.model("Stundenplan", StundenplanSchema);
+
+export { collection, Stundenplan };
