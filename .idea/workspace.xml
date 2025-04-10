@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="988d13d6-e650-433c-9fa8-66c73ca19408" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/middleware/fileHandler.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/middleware/authMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/middleware/authMiddleware.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/fileRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/fileRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/utils/routesSetup.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/utils/routesSetup.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,23 +47,27 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "G:/projects/noteSync",
+    "last_opened_file_path": "G:/projects/discord_bot",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\loren\\files\\projects\\mci\\notesync\\frontend\\node_modules\\prettier",
+    "prettierjs.PrettierConfiguration.Package": "G:\\projects\\noteSync\\frontend\\node_modules\\prettier",
     "settings.editor.selected.configurable": "editor.preferences.inline.completion",
     "ts.external.directory.path": "C:\\Users\\loren\\files\\projects\\mci\\notesync\\frontend\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\projects\noteSync\backend\middleware" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-WS-243.26053.12" />
       </set>
     </attachedChunks>
   </component>
@@ -79,7 +86,10 @@
       <workItem from="1742382135046" duration="7286000" />
       <workItem from="1742573313119" duration="642000" />
       <workItem from="1742573965869" duration="399000" />
-      <workItem from="1742890642056" duration="298000" />
+      <workItem from="1742890642056" duration="2498000" />
+      <workItem from="1742893173095" duration="1263000" />
+      <workItem from="1743100456132" duration="98000" />
+      <workItem from="1743234344388" duration="1066000" />
     </task>
     <servers />
   </component>

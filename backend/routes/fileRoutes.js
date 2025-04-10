@@ -1,17 +1,19 @@
-import { Router } from 'express';
-import cors from "cors";
-const router = Router();
+import express from 'express';
+import { authenticateJWT, authorizeRoles } from '../middleware/authMiddleware.js';
+import { upload, downloadFile } from '../middleware/fileHandler.js';
 
-router.use(cors({
-    origin: 'http://localhost:5173', // Allow requests from your frontend's URL
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods
-    credentials: true // If using cookies or HTTP authentication
-}));
+const router = express.Router();
 
-// Define your routes
-router.get('/', (req, res) => {
-    res.send('file Route');
+// Upload route
+router.post('/upload',
+    //authenticateJWT, authorizeRoles("student", "admin"),
+    upload.single('file'), (req, res) => {
+    res.status(200).json({ message: 'File uploaded successfully!' });
 });
 
-// Default export
+// Download route
+router.get('/download/:filename',
+    //authenticateJWT, authorizeRoles("student", "admin"),
+    downloadFile);
+
 export default router;
