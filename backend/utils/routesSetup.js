@@ -3,6 +3,7 @@ import fileRoutes from '../routes/fileRoutes.js';
 import infoRoutes from '../routes/infoRoutes.js';
 import authRoutes from '../routes/authRoutes.js';
 import loginRoutes from '../routes/loginRoutes.js';
+import lectureDisplayRoutes from '../routes/lectureDisplayRoutes.js';
 
 export default function setupRoutes(app) {
     app.use('/ping', testRoutes); // test route
@@ -10,4 +11,5 @@ export default function setupRoutes(app) {
     app.use('/api/files', fileRoutes); //only for file up- / downloading
     app.use('/api/info', infoRoutes); //only for information requests
     app.use('/login', loginRoutes); //send login routes through login/verification process
+    app.use('/api/next-lectures', lectureDisplayRoutes);
 }
