@@ -5,12 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="988d13d6-e650-433c-9fa8-66c73ca19408" name="Changes" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/backend/middleware/fileHandler.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/middleware/authMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/middleware/authMiddleware.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/routes/fileRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/fileRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/utils/routesSetup.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/utils/routesSetup.js" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/database/stundenplanRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/dbRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/dbRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/mongoose.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/mongoose.js" afterDir="false" />
+>>>>>>> 2a72a00e9a583f78381ff63a547463bdf5e0c0b1
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +34,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "KapMeow"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/hszgLorKor/noteSync.git",
+    "accountId": "8ff5302f-c78a-4414-afcb-774a6b783b70"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -35,6 +54,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Node.js.app.js.executor": "Run",
@@ -64,6 +84,30 @@
       <recent name="G:\projects\noteSync\backend\middleware" />
     </key>
   </component>
+=======
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Node.js.app.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.authRoutes.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.dbInjectionChecker.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.loginRoutes.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.routesSetup.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/loren/files/projects/mci/notesync&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\loren\\files\\projects\\mci\\notesync\\frontend\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\loren\\files\\projects\\mci\\notesync\\frontend\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+>>>>>>> 2a72a00e9a583f78381ff63a547463bdf5e0c0b1
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -84,12 +128,16 @@
       <workItem from="1742299317872" duration="2557000" />
       <workItem from="1742370056100" duration="9395000" />
       <workItem from="1742382135046" duration="7286000" />
+<<<<<<< HEAD
       <workItem from="1742573313119" duration="642000" />
       <workItem from="1742573965869" duration="399000" />
       <workItem from="1742890642056" duration="2498000" />
       <workItem from="1742893173095" duration="1263000" />
       <workItem from="1743100456132" duration="98000" />
       <workItem from="1743234344388" duration="1066000" />
+=======
+      <workItem from="1743667330485" duration="1565000" />
+>>>>>>> 2a72a00e9a583f78381ff63a547463bdf5e0c0b1
     </task>
     <servers />
   </component>
