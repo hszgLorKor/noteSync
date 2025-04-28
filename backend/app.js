@@ -28,6 +28,6 @@ app.use(cors({
     credentials: true // If using cookies or HTTP authentication
 }));
 
-app.listen(PORT, () => {
+app.listen(PORT, 'localhost', () => {
     console.log(`Backend running on port ${PORT}`);
 });
