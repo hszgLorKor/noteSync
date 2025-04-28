@@ -8,9 +8,6 @@ export function isSafe(input) {
     const isFirstLowercase = /^[a-z]$/.test(stringInput[0]);
     const isSecondNumber = /^[0-9]$/.test(stringInput[1]);
 
-    if (!isFirstLowercase || !isSecondNumber) {
-        return false;
-    }
-
-    return true; // Return true if the input is safe
+    return (isFirstLowercase && isSecondNumber);
+     // Return true if the input is sql-injection safe
 }

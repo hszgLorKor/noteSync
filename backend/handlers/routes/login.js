@@ -1,7 +1,8 @@
 import { Router } from 'express';
-import { isSafe } from '../utils/dbInjectionChecker.js';
-import {generateToken} from "../utils/generateJWTToken.js";
-import rateLimit from "express-rate-limit";
+import { isSafe } from '../../../../../notesync_test/backend/utils/database/SQLInjectionChecker/injectionChecker.js';
+import {generateToken} from "../../../../../notesync_test/backend/utils/authentication/tokenGenerator/generateJWTToken.js";
+import {loginRequest} from '../../../../../notesync_test/backend/utils/database/SQLConnection/connection.js'
+import rateLimit from 'express-rate-limit';
 import cors from "cors";
 
 const router = Router();
@@ -18,16 +19,13 @@ const loginLimiter = rateLimit({
     max: 10, // Limit each IP to 10 requests per 15 minutes
     message: "Too many login attempts. Please try again later."
 });
-
-router.use('/', loginLimiter); // Apply to your login route
-
 // define login
-router.post('/', (req, res) => {
+router.post('/', loginLimiter, (req, res) => {  // Directly applying loginLimiter here
     const { username, password } = req.body;
+
     console.log(username, password);
-//TODO check in database if username & password correct
     if (isSafe(username) && isSafe(password)) {
-        if (2 > 1) {
+        if (Boolean(loginRequest(username, password))) {
             const token = generateToken(username);
             res.cookie('authToken', token, {
                 httpOnly: true, // Prevent access by JavaScript

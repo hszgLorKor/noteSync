@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 import cors from 'cors';
 import { fileURLToPath } from 'url';
-import setupRoutes from './utils/routesSetup.js';
+import setupRoutes from '../../mci/notesync/backend/handlers/setup/routesSetup.js';
 import cookieParser from 'cookie-parser';
 
 // Fix __dirname in ES modules

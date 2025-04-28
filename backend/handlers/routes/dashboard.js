@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import cors from "cors";
 import dotenv from 'dotenv';
-import { authenticateJWT, authorizeRoles} from "../middleware/authMiddleware.js";
+import { authenticateJWT, authorizeRoles} from "../../../../../notesync_test/backend/utils/authentication/tokenChecker/tokenChecker.js";
 // Load environment variables
 dotenv.config();
 
