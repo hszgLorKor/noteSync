@@ -27,7 +27,7 @@ router.post('/', loginLimiter, async (req, res) => {  // Directly applying login
     if (isSafe(username) && isSafe(password)) {
         const isLoggedIn = await loginRequest(username, password);
         if (isLoggedIn) {
-            const token = generateToken(username);
+            const token = await generateToken(username);
             res.cookie('authToken', token, {
                 httpOnly: true, // Prevent access by JavaScript
                 secure: false,   // Ensures the cookie is only sent over HTTPS

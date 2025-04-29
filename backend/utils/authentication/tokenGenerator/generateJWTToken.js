@@ -1,11 +1,11 @@
 import jwt from "jsonwebtoken";
 import {permissionRequest} from "../../database/SQLConnection/connection.js";
 
-export function generateToken(username) {
+export async function generateToken(username) {
     // Assume the user object has properties: username and role
     //TODO connect to database and retrieve information -> creating a jwt Token using it
     //TODO Token with JWT -> expiration 1h -> 4 level? (viewer, poster, moderator, admin) -> use https for token transit
-    const permissionLevel = Number(permissionRequest(username));
+    const permissionLevel = await permissionRequest(username);
     if (permissionLevel === 1) {
         const payload = {
             userid: username,          // userid: the unique name of the user not the id in the database!!
