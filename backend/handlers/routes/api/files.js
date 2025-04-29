@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import cors from "cors";
-import { authenticateJWT, authorizeRoles } from "../../../../../../notesync_test/backend/utils/authentication/tokenChecker/tokenChecker.js";
-import { findFiles } from "../../../../../../notesync_test/backend/utils/fileTransfer/fileSearch/fileSearch.js";
+import { authenticateJWT, authorizeRoles } from "../../../utils/authentication/tokenChecker/tokenChecker.js";
+import { findFiles } from "../../../utils/fileTransfer/fileSearch/fileSearch.js";
 
 const router = Router();
 

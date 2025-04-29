@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import { isSafe } from '../../../../../notesync_test/backend/utils/database/SQLInjectionChecker/injectionChecker.js';
-import {generateToken} from "../../../../../notesync_test/backend/utils/authentication/tokenGenerator/generateJWTToken.js";
-import {loginRequest} from '../../../../../notesync_test/backend/utils/database/SQLConnection/connection.js'
+import { isSafe } from '../../utils/database/SQLInjectionChecker/injectionChecker.js';
+import {generateToken} from "../../utils/authentication/tokenGenerator/generateJWTToken.js";
+import {loginRequest} from '../../utils/database/SQLConnection/connection.js'
 import rateLimit from 'express-rate-limit';
 import cors from "cors";
 

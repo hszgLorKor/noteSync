@@ -1,8 +1,8 @@
 import { Router } from 'express';
 import cors from "cors";
 import multer from "multer";
-import { upload } from "../../../../../../notesync_test/backend/utils/fileTransfer/fileUpload/upload.js";
-import {authenticateJWT, authorizeRoles} from "../../../../../../notesync_test/backend/utils/authentication/tokenChecker/tokenChecker.js";
+import { upload } from "../../../utils/fileTransfer/fileUpload/upload.js";
+import {authenticateJWT, authorizeRoles} from "../../../utils/authentication/tokenChecker/tokenChecker.js";
 
 const router = Router();
 

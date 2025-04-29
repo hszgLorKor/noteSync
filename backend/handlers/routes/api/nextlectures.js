@@ -1,8 +1,8 @@
 import { Router } from 'express';
 import cors from "cors";
 import dotenv from 'dotenv';
-import {authenticateJWT, authorizeRoles} from "../../../../../../notesync_test/backend/utils/authentication/tokenChecker/tokenChecker.js";
-import {nextLectureRequest} from "../../../../../../notesync_test/backend/utils/database/SQLConnection/connection.js";
+import {authenticateJWT, authorizeRoles} from "../../../utils/authentication/tokenChecker/tokenChecker.js";
+import {nextLectureRequest} from "../../../utils/database/SQLConnection/connection.js";
 // Load environment variables
 dotenv.config();
 

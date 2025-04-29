@@ -44,13 +44,16 @@ app.post('/login', async (req, res) => {
 
     const user = await User.findOne({ username });
     if (!user) {
-        return res.json({ success: false });
+        return res.status(401).json({ success: false, message: 'Benutzer nicht gefunden' });
     }
 
     const isPasswordCorrect = await bcrypt.compare(password, user.passwordHash);
-    res.json({ success: isPasswordCorrect });
-});
+    if (!isPasswordCorrect) {
+        return res.status(401).json({ success: false, message: 'Falsches Passwort' });
+    }
 
+    res.status(200).json({ success: true, message: 'Login erfolgreich' });
+});
 // 3) Permission request
 app.get('/permission/:username', async (req, res) => {
     const { username } = req.params;

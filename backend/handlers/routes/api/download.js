@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import cors from "cors";
-import download from "../../../../../../notesync_test/backend/utils/fileTransfer/fileDownload/download.js";
-import {authenticateJWT, authorizeRoles} from "../../../../../../notesync_test/backend/utils/authentication/tokenChecker/tokenChecker.js";
+import download from "../../../utils/fileTransfer/fileDownload/download.js";
+import {authenticateJWT, authorizeRoles} from "../../../utils/authentication/tokenChecker/tokenChecker.js";
 
 const router = Router();
 
