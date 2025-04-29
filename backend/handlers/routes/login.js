@@ -23,10 +23,9 @@ const loginLimiter = rateLimit({
 router.post('/', loginLimiter, async (req, res) => {  // Directly applying loginLimiter here
     const { username, password } = req.body;
 
-    console.log(username, password);
     if (isSafe(username) && isSafe(password)) {
-        const isLoggedIn = await loginRequest(username, password);
-        if (isLoggedIn) {
+        const loginCredentials = await loginRequest(username, password);
+        if (loginCredentials) {
             const token = await generateToken(username);
             res.cookie('authToken', token, {
                 httpOnly: true, // Prevent access by JavaScript
