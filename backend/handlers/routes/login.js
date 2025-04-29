@@ -15,17 +15,18 @@ router.use(cors({
 
 //limiting login tries, to avoid brute forcing
 const loginLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 10, // Limit each IP to 10 requests per 15 minutes
+    windowMs: 15 * 60 * 1000, //15 minutes
+    max: 10,  //Limit each IP to 10 requests per 15 minutes
     message: "Too many login attempts. Please try again later."
 });
 // define login
-router.post('/', loginLimiter, (req, res) => {  // Directly applying loginLimiter here
+router.post('/', loginLimiter, async (req, res) => {  // Directly applying loginLimiter here
     const { username, password } = req.body;
 
     console.log(username, password);
     if (isSafe(username) && isSafe(password)) {
-        if (Boolean(loginRequest(username, password))) {
+        const isLoggedIn = await loginRequest(username, password);
+        if (isLoggedIn) {
             const token = generateToken(username);
             res.cookie('authToken', token, {
                 httpOnly: true, // Prevent access by JavaScript

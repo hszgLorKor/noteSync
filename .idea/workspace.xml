@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="988d13d6-e650-433c-9fa8-66c73ca19408" name="Changes" comment="" />
+    <list default="true" id="988d13d6-e650-433c-9fa8-66c73ca19408" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/handlers/routes/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/handlers/routes/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/utils/database/SQLConnection/connection.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/utils/database/SQLConnection/connection.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,6 +49,7 @@
     "Node.js.app.js.executor": "Run",
     "Node.js.authRoutes.js.executor": "Run",
     "Node.js.dbInjectionChecker.js.executor": "Run",
+    "Node.js.login.js.executor": "Run",
     "Node.js.loginRoutes.js.executor": "Run",
     "Node.js.routesSetup.js.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -95,7 +100,7 @@
       <workItem from="1745825291039" duration="1585000" />
       <workItem from="1745849178161" duration="1063000" />
       <workItem from="1745923047260" duration="42000" />
-      <workItem from="1745923117035" duration="1166000" />
+      <workItem from="1745923117035" duration="2213000" />
     </task>
     <servers />
   </component>
