@@ -64,6 +64,6 @@ app.get('/permission/:username', async (req, res) => {
 });
 
 // Start server
-app.listen(3000, 'localhost', () => {
-    console.log('Server läuft auf Port 3000, nur lokal');
+app.listen(3333, 'localhost', () => {
+    console.log('Server läuft auf Port 3333, nur lokal');
 });
