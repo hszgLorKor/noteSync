@@ -16,7 +16,7 @@ router.use(cors({
 
 // Define your routes
 router.get('/', authenticateJWT, authorizeRoles("viewer", "student", "admin"), (req, res) => {
-    return res.status(200).send('Auth Route');
+    return res.status(200);
 });
 
 // Default export

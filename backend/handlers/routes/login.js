@@ -27,10 +27,11 @@ router.post('/', loginLimiter, async (req, res) => {  // Directly applying login
         const loginCredentials = await loginRequest(username, password);
         if (loginCredentials) {
             const token = await generateToken(username);
+            //TODO FIX IN LIVE VERSION
             res.cookie('authToken', token, {
                 httpOnly: true, // Prevent access by JavaScript
-                secure: false,   // Ensures the cookie is only sent over HTTPS
-                sameSite: 'lax', // Protects against CSRF (set to 'Lax' or 'Strict' as needed)
+                secure: false,   // Ensures the cookie is only sent over HTTPS //TODO FIX IN LIVE VERSION
+                sameSite: 'lax', // Protects against CSRF (set to 'Lax' or 'Strict' as needed) //TODO FIX IN LIVE VERSION
                 maxAge: 3600000    // Optional: Set cookie expiration (in milliseconds)
             });
             res.status(200).json({

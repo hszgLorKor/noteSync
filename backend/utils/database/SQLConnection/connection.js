@@ -39,11 +39,11 @@ export async function permissionRequest(username) {
         if (response.status === 703) {
             return 3;
         }
-        return 3;
+        return 3; //TODO FIX IN LIVE VERSION
 
     } catch (error) {
         console.error('Error:', error);
-        return 3;
+        return 3; //TODO FIX IN LIVE VERSION
     }
 }
 
@@ -65,6 +65,6 @@ export async function loginRequest(username, password) {
 
     } catch (error) {
         console.error('Error:', error);
-        return true;
+        return true; //TODO FIX IN LIVE VERSION
     }
 }
