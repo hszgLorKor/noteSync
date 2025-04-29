@@ -43,6 +43,7 @@ export async function permissionRequest(username) {
 
     } catch (error) {
         console.error('Error:', error);
+        return null;
     }
 }
 
@@ -64,5 +65,6 @@ export async function loginRequest(username, password) {
 
     } catch (error) {
         console.error('Error:', error);
+        return false;
     }
 }
