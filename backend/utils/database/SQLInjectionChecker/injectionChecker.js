@@ -10,4 +10,6 @@ export function isSafe(input) {
 
     return (isFirstLowercase && isSecondNumber);
      // Return true if the input is sql-injection safe
+
+    // returns true if the input starts with a lowercase letter and a number afterwards
 }

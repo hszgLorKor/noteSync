@@ -3,8 +3,7 @@ import {permissionRequest} from "../../database/SQLConnection/connection.js";
 
 export async function generateToken(username) {
     // Assume the user object has properties: username and role
-    //TODO connect to database and retrieve information -> creating a jwt Token using it
-    //TODO Token with JWT -> expiration 1h -> 4 level? (viewer, poster, moderator, admin) -> use https for token transit
+    // only works if user has username properties -> ensured by login before
     const permissionLevel = await permissionRequest(username);
     if (permissionLevel === 1) {
         const payload = {
@@ -30,4 +29,6 @@ export async function generateToken(username) {
         };
         return jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
     }
+    //TODO FIX IN LIVE VERSION
+    //TODO add error handling?
 }
