@@ -2,7 +2,10 @@
   "type": "module",
   "dependencies": {
     "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
     "express": "^4.21.2",
+    "ical.js": "^2.1.0",
+    "mongodb": "^6.16.0",
     "mongoose": "^8.12.1"
   }
 }

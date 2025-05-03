@@ -5,6 +5,7 @@ import permissionRequest from "./permission/permissionRequest.js";
 import login from "./login/login.js";
 import nextLecture from "./nextLecture/nextLecture.js";
 import editLecture from "./editLecture/editLecture.js";
+import addLecture from "./addLecture/addLecture.js";
 
 const PORT = 3333;
 const app = express();
@@ -33,7 +34,9 @@ app.post('/edit-lecture', async (req, res) => {
     const { id } = req.body;
     editLecture(req, res, id);
 })
-// TODO add-lecture
+app.post('/add-lecture', async (req, res) => {
+    await addLecture(req, res);
+})
 
 app.listen(PORT, 'localhost', () => {
     console.log(`Database listening on ${PORT}`);

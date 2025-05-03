@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const bcryptjs = require('bcryptjs'); // LOLLE bcrypt -> bycrptjs spelling error
 const app = express();
 
 app.use(express.json());
@@ -47,7 +47,7 @@ app.post('/login', async (req, res) => {
         return res.status(401).json({ success: false, message: 'Benutzer nicht gefunden' });
     }
 
-    const isPasswordCorrect = await bcrypt.compare(password, user.passwordHash);
+    const isPasswordCorrect = await bcryptjs.compare(password, user.passwordHash);
     if (!isPasswordCorrect) {
         return res.status(401).json({ success: false, message: 'Falsches Passwort' });
     }
@@ -68,5 +68,5 @@ app.get('/permission/:username', async (req, res) => {
 
 // Start server
 app.listen(3333, 'localhost', () => {
-    console.log('Server läuft auf Port 3333, nur lokal');
+    console.log('server runs on port 3333, only accessible locally'); //LOLLE englishify
 });
