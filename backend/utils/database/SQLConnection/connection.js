@@ -68,3 +68,37 @@ export async function loginRequest(username, password) {
         return false;
     }
 }
+export async function editLectureRequest(req, res) {
+    const url = 'http://localhost:3333/edit-lecture';
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: req.body
+        })
+        res.send(response);
+        return;
+    }
+    catch (error) {
+        res.status(500).send({message : "Internal error"});
+    }
+}
+export async function addLectureRequest(req, res) {
+    const url = 'http://localhost:3333/edit-lecture';
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: req.body
+        })
+        res.send(response);
+        return;
+    }
+    catch (error) {
+        res.status(500).send({message : "Internal error"});
+    }
+}

@@ -2,6 +2,7 @@ import { Router } from 'express';
 import cors from "cors";
 import dotenv from 'dotenv';
 import { authenticateJWT, authorizeRoles} from "../../../utils/authentication/tokenChecker/tokenChecker.js";
+import {addLectureRequest} from "../../../utils/database/SQLConnection/connection.js";
 // Load environment variables
 dotenv.config();
 
@@ -15,8 +16,8 @@ router.use(cors({
 
 
 // Define your routes
-router.get('/', authenticateJWT, authorizeRoles("admin"), (req, res) => {
-    return res.status(200).json({message: "authentication success"});
+router.get('/', authenticateJWT, authorizeRoles("admin"), async (req, res) => {
+    await addLectureRequest(req, res);
 });
 
 // Default export
