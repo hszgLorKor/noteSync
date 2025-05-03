@@ -1,9 +1,0 @@
-username=a3admin
-password=a3adminpassword
-permissionlevel=3
-username=s2student
-password=s2studentpassword
-permissionlevel=2
-username=v1viewer
-password=v1viewerpassword
-permissionlevel=1
