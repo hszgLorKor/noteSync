@@ -76,9 +76,10 @@ export async function editLectureRequest(req, res) {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: req.body
+            body: JSON.stringify(req.body)
         })
-        res.send(response);
+        const data = await response.json();
+        res.status(response.status).send({ message : data.message});
         return;
     }
     catch (error) {
@@ -100,7 +101,6 @@ export async function addLectureRequest(req, res) {
         return;
     }
     catch (error) {
-        console.log(error);
         res.status(500).send({message : "Internal error"});
     }
 }
