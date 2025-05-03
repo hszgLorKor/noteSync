@@ -86,19 +86,21 @@ export async function editLectureRequest(req, res) {
     }
 }
 export async function addLectureRequest(req, res) {
-    const url = 'http://localhost:3333/edit-lecture';
+    const url = 'http://localhost:3333/add-lecture';
     try {
         const response = await fetch(url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: req.body
+            body:  JSON.stringify(req.body)
         })
-        res.send(response);
+        const data = await response.json();
+        res.status(response.status).send({ message : data.message});
         return;
     }
     catch (error) {
+        console.log(error);
         res.status(500).send({message : "Internal error"});
     }
 }

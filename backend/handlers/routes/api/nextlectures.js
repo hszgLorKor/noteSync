@@ -19,7 +19,7 @@ router.use(cors({
 router.get('/', authenticateJWT, authorizeRoles("viewer", "student", "admin"), async (req, res) => {
     try {
         const lecturesData = await nextLectureRequest(); // Assuming this is an async function, you'll need to use 'await'
-        return res.json(lecturesData);
+        return res.json(lecturesData).send();
     } catch (err) {
         return res.status(401).send({});
     }

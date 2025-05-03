@@ -5,30 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="988d13d6-e650-433c-9fa8-66c73ca19408" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/handlers/routes/admin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/handlers/routes/api/addlecture.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/handlers/routes/api/editlecture.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/endpoint/addLecture/addLecture.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/endpoint/dbConnection.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/endpoint/editLecture/editLecture.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/endpoint/login/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/endpoint/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/endpoint/nextLecture/nextLecture.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/endpoint/permission/permissionRequest.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/startingSetup/fillCollections/fillLectures.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/startingSetup/fillCollections/fillUsers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/startingSetup/fillCollections/resources/iib24.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/startingSetup/setupCollections/setupLectures.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/startingSetup/setupCollections/setupUsers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/startingSetup/setupStart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/utils/bcryptjs/compare/comparePassword.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/utils/bcryptjs/hash/hashPassword.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/handlers/setup/routesSetup.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/handlers/setup/routesSetup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/handlers/routes/api/addlecture.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/handlers/routes/api/addlecture.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/handlers/routes/api/nextlectures.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/handlers/routes/api/nextlectures.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/utils/database/SQLConnection/connection.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/utils/database/SQLConnection/connection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/dbAnfragen.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/dbAnfragen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/database/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/database/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +117,7 @@
       <workItem from="1746100473228" duration="21784000" />
       <workItem from="1746174334935" duration="4005000" />
       <workItem from="1746178733285" duration="15686000" />
-      <workItem from="1746291785349" duration="3345000" />
+      <workItem from="1746291785349" duration="5463000" />
     </task>
     <servers />
   </component>
