@@ -1,6 +1,6 @@
 
 export async function nextLectureRequest() {
-    const url = 'http://localhost:3333/next-lecture'; // Adjust the URL according to your setup
+    const url = 'http://localhost:3333/next-lecture'; // Adjust the URL according to your startingSetup
 
     try {
         const response = await fetch(url, {
@@ -30,20 +30,20 @@ export async function permissionRequest(username) {
                 'Content-Type': 'application/json',
             }
         });
-        if (response.status === 701) {
+        if (response.status === 201) {
             return 1;
         }
-        if (response.status === 702) {
+        if (response.status === 202) {
             return 2;
         }
-        if (response.status === 703) {
+        if (response.status === 203) {
             return 3;
         }
-        return 3; //TODO FIX IN LIVE VERSION
+        return 0;
 
     } catch (error) {
         console.error('Error:', error);
-        return 3; //TODO FIX IN LIVE VERSION
+        return 0;
     }
 }
 
@@ -65,6 +65,6 @@ export async function loginRequest(username, password) {
 
     } catch (error) {
         console.error('Error:', error);
-        return true; //TODO FIX IN LIVE VERSION
+        return false;
     }
 }
