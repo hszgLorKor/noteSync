@@ -14,6 +14,7 @@ router.use(cors({
 // Define your routes
 router.get('/', authenticateJWT, authorizeRoles("student", "admin"), async (req, res) => {
     const { lectureName, lectureNumber } = req.body; // Extract from the request body
+    console.log(lectureName, lectureNumber);
 
     try {
         // Call the findFiles function and await its response
@@ -31,7 +32,7 @@ router.get('/', authenticateJWT, authorizeRoles("student", "admin"), async (req,
         });
     } catch (error) {
         // Handle errors from the file service
-        res.status(500).send({ message: error });
+        res.status(500).send({ message: "Error while fetching files" });
     }
 });
 

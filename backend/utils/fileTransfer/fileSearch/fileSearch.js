@@ -6,7 +6,7 @@ import {fileURLToPath} from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const directoryPath = path.join(__dirname, '../../../fileStorage'); // Path to the fileStorage folder
+const directoryPath = path.join(__dirname, '../../fileStorage'); // Path to the fileStorage folder
 
 export const findFiles = (lectureName, lectureNumber) => {
     return new Promise((resolve, reject) => {
