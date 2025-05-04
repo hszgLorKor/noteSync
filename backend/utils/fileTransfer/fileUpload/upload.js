@@ -1,5 +1,9 @@
 import multer from 'multer';
 import path from 'path';
+import {fileURLToPath} from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const allowedMimeTypes = [
     'application/pdf', // PDF files
@@ -12,14 +16,17 @@ const allowedMimeTypes = [
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, path.join(__dirname, '../../../fileStorage')); // define folder to save uploaded files
+        cb(null, path.join(__dirname, '../../fileStorage')); // define folder to save uploaded files
     },
     filename: function (req, file, cb) {
-        const lectureName = req.body.lectureName || 'unknownLecture';
-        const lectureNumber = req.body.lectureNumber || 'unknownNumber';
+        req.locals = {
+            originalFilename: file.originalname,
+            mimetype: file.mimetype,
+        // Add any other file details you need to access later
+        };
 
         const timestamp = Date.now();
-        const newFilename = `${lectureName}-${lectureNumber}-${timestamp}-${file.originalname}`;
+        const newFilename = `${timestamp}`;
         cb(null, newFilename); // define how files are named
     }
 });
@@ -38,3 +45,7 @@ export const upload = multer({
     limits: { fileSize: 25 * 1024 * 1024 }, // 25 MB limit
     fileFilter: fileFilter // Apply the file filter
 });
+
+export async function renameFile() {
+
+}
