@@ -115,22 +115,22 @@ function extractValue(line) {
 function getProfessor(lecture) {
     // Your existing logic to identify the professor
     if (lecture.includes("Progr")) {
-        return "Lelanz";
+        return "Lelanz, Benedict LA";
     }
     if (lecture.includes("Math")) {
-        return "Schnell";
+        return "Prof. Dr. rer. nat. habil. Schnell, Uwe";
     }
     if (lecture.includes("Date")) {
-        return "Ulrich";
+        return "Dr.-Ing. Ullrich, Markus";
     }
     if (lecture.includes("Men")) {
-        return "Westermann";
+        return "Dipl.-Des. (FH) Westermann, Lutz";
     }
     if (lecture.includes("Info")) {
-        return "Hartwig";
+        return "Dr. Hartwig, Michael";
     }
     if (lecture.includes("Betrie")) {
-        return "Ruhland";
+        return "Prof. Dr.-Ing. Ruhland, Klaus";
     }
     return "unknown";
 }
