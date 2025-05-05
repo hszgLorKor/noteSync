@@ -29,6 +29,10 @@ export async function generateToken(username) {
         };
         return jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
     }
-    //TODO FIX IN LIVE VERSION
-    //TODO add error handling?
+    const payload = {
+        userid: username,          // userid: the unique name of the user not the id in the database!!
+        role: "useless",       // role of the user (e.g., 'admin', 'viewer', 'editor', 'poster')
+        iat: Date.now(), // issued at time
+    };
+    return jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1s' });
 }
