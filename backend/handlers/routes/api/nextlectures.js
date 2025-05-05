@@ -17,8 +17,9 @@ router.use(cors({
 
 // Define your routes
 router.get('/', authenticateJWT, authorizeRoles("viewer", "student", "admin"), async (req, res) => {
+    const count = parseInt(req.query.count) || 2;
     try {
-        const lecturesData = await nextLectureRequest(); // Assuming this is an async function, you'll need to use 'await'
+        const lecturesData = await nextLectureRequest(count); // Assuming this is an async function, you'll need to use 'await'
         return res.json(lecturesData).send();
     } catch (err) {
         return res.status(401).send({});

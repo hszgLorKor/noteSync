@@ -1,6 +1,6 @@
 
-export async function nextLectureRequest() {
-    const url = 'http://localhost:3333/next-lecture'; // Adjust the URL according to your startingSetup
+export async function nextLectureRequest(count) {
+    const url = 'http://localhost:3333/next-lecture?count=' + count; // Adjust the URL according to your startingSetup
 
     try {
         const response = await fetch(url, {
