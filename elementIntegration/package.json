@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "matrix-js-sdk": "^37.4.0"
+  }
+}
