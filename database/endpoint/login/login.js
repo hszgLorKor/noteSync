@@ -5,7 +5,7 @@ export default async function login(req, res, username, password) {
     //gets password from database
     const dbPassword = await loginAttempt(username);
     //compares and responds with success or failed according to the outcome
-    if (await comparePassword(password, dbPassword)) {
+    if (password && await comparePassword(password, dbPassword)) {
         res.status(200).json({message: "login success"});
     }
     else {

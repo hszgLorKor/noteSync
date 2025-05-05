@@ -1,5 +1,3 @@
-import {hashPassword} from "../../utils.js";
-import comparePassword from "../../utils/bcryptjs/compare/comparePassword.js";
 
 const collectionName = 'users';
 
