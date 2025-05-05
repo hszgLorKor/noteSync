@@ -45,7 +45,3 @@ export const upload = multer({
     limits: { fileSize: 25 * 1024 * 1024 }, // 25 MB limit
     fileFilter: fileFilter // Apply the file filter
 });
-
-export async function renameFile() {
-
-}
