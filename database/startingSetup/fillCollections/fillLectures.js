@@ -48,7 +48,7 @@ export default async function fillLectures(client, database) {
                     const eventDate = new Date(Date.UTC(year, month, day, hours, minutes, seconds));
                     const time = eventDate.getTime(); // Get the Unix timestamp in milliseconds
 
-                    const name = extractValue(currentEvent[4]); // Grab lecture name
+                    const name = getBetterSubjectName(extractValue(currentEvent[4])); // Grab lecture name
                     const description = extractValue(currentEvent[5]); // Grab description
                     const professor = getProfessor(name); // Get the professor's name
                     const place = extractValue(currentEvent[6]); // Grab room location
@@ -110,6 +110,28 @@ function extractValue(line) {
     else {
         return "unknown";
     }
+}
+
+function getBetterSubjectName(lecture) {
+    if (lecture.includes("Program")) {
+        return "Objektorientierte Programmierung";
+    }
+    if (lecture.includes("Math")) {
+        return "Diskrete Mathematik";
+    }
+    if (lecture.includes("Daten")) {
+        return "Relationale Datenbanken";
+    }
+    if (lecture.includes("Mensc")) {
+        return "Mensch-Computer-Interaktion II";
+    }
+    if (lecture.includes("Info")) {
+        return "Theoretische Informatik";
+    }
+    if (lecture.includes("Betrie")) {
+        return "Betriebssysteme und Systemprogrammierung 2";
+    }
+    return "unknown";
 }
 
 function getProfessor(lecture) {
