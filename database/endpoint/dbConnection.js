@@ -55,13 +55,13 @@ export async function loginAttempt(username) {
     }
 }
 
-export async function nextLectureRequest() {
+export async function nextLectureRequest(limit) {
     try {
         const currentDate = Date.now();
         return await db.collection(lectures) // Ensure you add quotes around the collection name
             .find({date: {$gte: currentDate}}) // Find lectures with date >= currentDate
             .sort({date: 1}) // Sort by date ascending
-            .limit(2) // Limit to the next 2 lectures
+            .limit(limit) // Limit to the next 2 lectures
             .toArray();
     }
     catch (err) {
