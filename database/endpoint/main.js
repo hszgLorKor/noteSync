@@ -24,7 +24,8 @@ app.post('/login', async (req, res) => {
     login(req, res, username, password);
 })
 app.get('/next-lecture', async (req, res) => {
-    nextLecture(req, res);
+    const count = parseInt(req.query.count) || 2;
+    nextLecture(req, res, count);
 })
 app.get('/permission/:username', async (req, res) => {
     const { username } = req.params;
