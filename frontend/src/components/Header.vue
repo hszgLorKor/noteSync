@@ -52,11 +52,13 @@ header {
             <li><router-link to="/dashboard">Dashboard</router-link></li>
             <li><router-link to="/login">Logout</router-link></li>
         </ul>
+        <!--
         <div class="upload">
             <form action="/files/upload" method="post" @submit="event.preventDefault()">
                 <input type="file" id="myFile" name="filename">
                 <input type="submit">
             </form>
         </div>
+        -->
     </header>
 </template>

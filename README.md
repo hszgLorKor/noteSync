@@ -21,7 +21,7 @@ This structure separates concerns and organizes files by functionality, making i
 │   │   └── index.html \
 │   ├── package.json \
 │   └── vite.config.js \
-│ \
+│
 ├── /backend \
 │   ├── /controllers \
 │   │   ├── authController.js \
@@ -43,15 +43,15 @@ This structure separates concerns and organizes files by functionality, making i
 │   │   └── example_file.txt \
 │   ├── app.js \
 │   └── package.json \
-│ \
+│
 ├── /database \
 │   └── mongoose.js \
-│ \
+│
 ├── /docs \
 │   └── README.md \
-│ \
+│
 ├── /apache \
 │   └── httpd.conf \
-│ \
+│
 ├── .env \
 └── .gitignore \
