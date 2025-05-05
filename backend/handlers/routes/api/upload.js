@@ -24,10 +24,11 @@ router.post('/', authenticateJWT, authorizeRoles("student", "admin"), (req, res,
             }
             // Handle other Multer errors as needed
             console.log(err);
-            return res.status(400).send({ message: 'A Multer error occurred: ' + err.message });
+            return res.status(400).send({ message: 'A Multer error occurred'});
         } else if (err) {
             // Here, we handle the invalid file type error (user-defined)
-            return res.status(460).send({ message: err.message }); // Adjust the message accordingly
+            console.log(err);
+            return res.status(460).send({ message: "Error while uploading file"}); // Adjust the message accordingly
         }
 
         // Checking for successful file upload
@@ -50,7 +51,7 @@ router.post('/', authenticateJWT, authorizeRoles("student", "admin"), (req, res,
             })
             .catch(err => {
                 console.error("Error renaming file:", err);
-                return res.status(500).send({ message: "Error renaming file: " + err.message });
+                return res.status(500).send({ message: "Error renaming file: "});
             });
     });
 });
