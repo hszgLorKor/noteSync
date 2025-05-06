@@ -1,8 +1,8 @@
 import express from 'express';
-import cors from 'cors';
 import {closeConnection, startConnection} from "./dbConnection.js";
 import permissionRequest from "./permission/permissionRequest.js";
 import login from "./login/login.js";
+import cors from "cors";
 import nextLecture from "./nextLecture/nextLecture.js";
 import editLecture from "./editLecture/editLecture.js";
 import addLecture from "./addLecture/addLecture.js";
@@ -13,11 +13,13 @@ const app = express();
 //start database connection
 startConnection().then(r => console.log(' ')).catch((err) => console.error(err));
 
-app.use(cors({
-    origin: 'http://localhost:3000', // Allow requests from your backend's URL
-    methods: ['GET', 'POST'], // Specify allowed HTTP methods
-}));
 app.use(express.json());
+
+app.use(cors({
+    origin: 'http://localhost:3000', // Allow requests from your frontend
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Specify allowed methods
+    credentials: true, // Allow cookies to be sent
+}));
 
 app.post('/login', async (req, res) => {
     const { username, password } = req.body;
