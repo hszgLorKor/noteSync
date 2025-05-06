@@ -3,15 +3,8 @@ import { isSafe } from '../../utils/database/SQLInjectionChecker/injectionChecke
 import {generateToken} from "../../utils/authentication/tokenGenerator/generateJWTToken.js";
 import {loginRequest} from '../../utils/database/SQLConnection/connection.js'
 import rateLimit from 'express-rate-limit';
-import cors from "cors";
 
 const router = Router();
-
-router.use(cors({
-    origin: 'http://localhost:5173', // Allow requests from your frontend's URL
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods
-    credentials: true // If using cookies or HTTP authentication
-}));
 
 //limiting login tries, to avoid brute forcing
 const loginLimiter = rateLimit({

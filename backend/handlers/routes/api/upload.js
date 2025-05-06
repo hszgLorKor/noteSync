@@ -1,5 +1,4 @@
 import { Router } from 'express';
-import cors from "cors";
 import multer from "multer";
 import { upload } from "../../../utils/fileTransfer/fileUpload/upload.js";
 import {authenticateJWT, authorizeRoles} from "../../../utils/authentication/tokenChecker/tokenChecker.js";
@@ -7,12 +6,6 @@ import fs from "fs";
 import path from "path";
 
 const router = Router();
-
-router.use(cors({
-    origin: 'http://localhost:5173', // Allow requests from your frontend's URL
-    methods: ['POST'], // Specify allowed HTTP methods
-    credentials: true // If using cookies or HTTP authentication
-}));
 
 // Define your routes
 router.post('/', authenticateJWT, authorizeRoles("student", "admin"), (req, res, next) => {

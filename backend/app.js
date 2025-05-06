@@ -20,13 +20,14 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 setupRoutes(app);
-
-// Use the CORS middleware
+/*
 app.use(cors({
-    origin: 'http://localhost:5173', // Allow requests from your frontend's URL
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods
-    credentials: true // If using cookies or HTTP authentication
+    origin: 'http://localhost:5173', // Allow requests from your frontend
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Specify allowed methods
+    credentials: true, // Allow cookies to be sent
 }));
+
+ */
 
 app.listen(PORT, 'localhost', () => {
     console.log(`Backend running on port ${PORT}`);
