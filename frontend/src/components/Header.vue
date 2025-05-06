@@ -9,6 +9,23 @@ function toggleSidebarFunc() {
     emit('toggle-sidebar', toggleSidebar)
 }
 
+function uploadFile(event) {
+    event.preventDefault();
+    console.log('File upload triggered')
+    /*
+    fetch('http://localhost:3000/api/upload', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data)
+    })
+    .catch((error) => {
+        console.error('Error:', error)
+    })*/
+}
+
 </script>
 <style scoped>
 header {
@@ -39,24 +56,29 @@ header {
     text-decoration: underline;
     text-underline-offset: var(--spacing-tiny);
 }
+
+.lolle-color {
+    color: #d77a61;
+}
 </style>
 
 <template>
     <header>
         <div class="left-side">
+            <!--
             <button @click="toggleSidebarFunc()">Toggle Sidebar</button>
-            <h4>Header</h4>
+            -->
+            <h3>Note<span class="lolle-color">Sync</span></h3>
         </div>
         <ul class="links-list">
-            <li><router-link to="/">Home</router-link></li>
             <li><router-link to="/dashboard">Dashboard</router-link></li>
             <li><router-link to="/login">Logout</router-link></li>
         </ul>
         <!--
         <div class="upload">
-            <form action="/files/upload" method="post" @submit="event.preventDefault()">
+            <form @submit="uploadFile(event)">
                 <input type="file" id="myFile" name="filename">
-                <input type="submit">
+                <button>Upload</button>
             </form>
         </div>
         -->
