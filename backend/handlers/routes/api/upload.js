@@ -49,9 +49,9 @@ router.post('/', authenticateJWT, authorizeRoles("student", "admin"), (req, res,
     });
 });
 
-// Default export
-export default router;
-
 function sanitizeFilename(filename) {
     return filename.replace(/[^a-zA-Z0-9.-]/g, ''); // Remove non-alphanumeric characters except hyphens
 }
+
+// Default export
+export default router;
