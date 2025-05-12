@@ -14,7 +14,7 @@ router.get('/', authenticateJWT, authorizeRoles("viewer", "student", "admin"), a
         const lecturesData = await nextLectureRequest(count); // Assuming this is an async function, you'll need to use 'await'
         return res.json(lecturesData);
     } catch (err) {
-        return res.status(401).send({});
+        return res.status(500).send({});
     }
 });
 
