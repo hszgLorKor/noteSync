@@ -40,9 +40,6 @@ router.post('/', authenticateJWT, authorizeRoles("student", "admin"), (req, res,
 
         fs.promises.rename(oldPath, newPath)
             .then(() => {
-                fs.unlinkSync(oldPath)
-            })
-            .then(() => {
                 res.status(200).send({ message: "File uploaded and data processed successfully" }); // Send a meaningful success message
             })
             .catch(err => {
