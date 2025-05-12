@@ -19,16 +19,14 @@ const app = express();
 // Middleware: parse JSON bodies
 app.use(express.json());
 app.use(cookieParser());
-setupRoutes(app);
-/*
+
 app.use(cors({
     origin: 'http://localhost:5173', // Allow requests from your frontend
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Specify allowed methods
     credentials: true, // Allow cookies to be sent
 }));
 
- */
-
+setupRoutes(app);
 app.listen(PORT, 'localhost', () => {
     console.log(`Backend running on port ${PORT}`);
 });
