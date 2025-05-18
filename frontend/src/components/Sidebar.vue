@@ -2,29 +2,25 @@
 import { ref } from 'vue'
 
 const semesterList = ref([
-    { id: 1, name: 'Semester 1', showSubjects: false },
     { id: 2, name: 'Semester 2', showSubjects: false },
     { id: 3, name: 'Semester 3', showSubjects: false },
     { id: 4, name: 'Semester 4', showSubjects: false },
 ])
 
 const subjects = ref([
-    { id: 1, name: 'Mathematics', semesterId: 1 },
-    { id: 2, name: 'Physics', semesterId: 1 },
-    { id: 3, name: 'Chemistry', semesterId: 1 },
-    { id: 4, name: 'Biology', semesterId: 1 },
-    { id: 5, name: 'Computer Science', semesterId: 2 },
-    { id: 6, name: 'English', semesterId: 2 },
-    { id: 7, name: 'History', semesterId: 2 },
-    { id: 8, name: 'Geography', semesterId: 2 },
-    { id: 9, name: 'Economics', semesterId: 3 },
-    { id: 10, name: 'Accounting', semesterId: 3 },
-    { id: 11, name: 'Business Studies', semesterId: 3 },
-    { id: 12, name: 'Marketing', semesterId: 3 },
-    { id: 13, name: 'Sociology', semesterId: 4 },
-    { id: 14, name: 'Psychology', semesterId: 4 },
-    { id: 15, name: 'Political Science', semesterId: 4 },
-    { id: 16, name: 'Philosophy', semesterId: 4 },
+    { id: 5, name: 'OOP', semesterId: 2 },
+    { id: 6, name: 'Dis. Mathe', semesterId: 2 },
+    { id: 7, name: 'Rel. Datenbank', semesterId: 2 },
+    { id: 8, name: 'MCI', semesterId: 2 },
+    { id: 9, name: 'Theo. Informatk', semesterId: 2 },
+    { id: 10, name: 'Betriebssys. 2', semesterId: 2 },
+    { id: 11, name: 'Accounting', semesterId: 3 },
+    { id: 12, name: 'Business Studies', semesterId: 3 },
+    { id: 13, name: 'Marketing', semesterId: 3 },
+    { id: 14, name: 'Sociology', semesterId: 4 },
+    { id: 15, name: 'Psychology', semesterId: 4 },
+    { id: 16, name: 'Political Science', semesterId: 4 },
+    { id: 17, name: 'Philosophy', semesterId: 4 },
 ])
 
 function showSubjects(id) {

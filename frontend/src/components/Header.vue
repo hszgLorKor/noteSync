@@ -3,27 +3,32 @@ import { ref } from 'vue'
 
 const emit = defineEmits(['toggle-sidebar'])
 const toggleSidebar = ref(true)
+const fileInput = ref(null)
 
 function toggleSidebarFunc() {
     toggleSidebar.value = !toggleSidebar.value
     emit('toggle-sidebar', toggleSidebar)
 }
 
-function uploadFile(event) {
-    event.preventDefault();
-    console.log('File upload triggered')
-    /*
+function uploadFile() {
+    const file = fileInput.value.files[0]
+
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append()
+
     fetch('http://localhost:3000/api/upload', {
         method: 'POST',
+        credentials: 'include',
         body: formData
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Success:', data)
-    })
-    .catch((error) => {
-        console.error('Error:', error)
-    })*/
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data)
+        })
+        .catch((error) => {
+            console.error('Error:', error)
+        })
 }
 
 </script>
@@ -74,13 +79,11 @@ header {
             <li><router-link to="/dashboard">Dashboard</router-link></li>
             <li><router-link to="/login">Logout</router-link></li>
         </ul>
-        <!--
         <div class="upload">
-            <form @submit="uploadFile(event)">
-                <input type="file" id="myFile" name="filename">
+            <form @submit.prevent="uploadFile()">
+                <input type="file" id="myFile" name="filename" ref="fileInput" />
                 <button>Upload</button>
             </form>
         </div>
-        -->
     </header>
 </template>

@@ -20,7 +20,7 @@ function login(e) {
             username: username.value,
             password: password.value
         }),
-      credentials: 'include'
+        credentials: 'include'
     }).then(res => {
         if (res.status === 401) {
             showError.value = true;
@@ -29,16 +29,16 @@ function login(e) {
             return res.json();
         }
     }).
-    then(data => {
-        console.log(data);
-        if (data.error) {
-            alert(data.error);
-        } else {
-            localStorage.setItem('token', data.token);
-            router.push('/dashboard');
+        then(data => {
             console.log(data);
-        }
-    });
+            if (data.error) {
+                alert(data.error);
+            } else {
+                localStorage.setItem('token', data.token);
+                router.push('/dashboard');
+                console.log(data);
+            }
+        });
 
 }
 </script>
