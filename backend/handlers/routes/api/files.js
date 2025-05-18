@@ -6,7 +6,8 @@ const router = Router();
 
 // Define your routes
 router.get('/', authenticateJWT, authorizeRoles("student", "admin"), async (req, res) => {
-    const { lectureName, lectureNumber } = req.body; // Extract from the request body
+    const lectureName = req.query.lectureName || '';
+    const lectureNumber = req.query.lectureNumber ||'';
     console.log(lectureName, lectureNumber);
 
     try {
