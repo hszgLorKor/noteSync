@@ -4,7 +4,10 @@ import { ref } from 'vue'
 const lectureList = ref([])
 const lectureCount = ref(2)
 
+const loading = ref(true);
+
 const getLectures = async () => {
+    loading.value = true;
     try {
         const response = await fetch('http://localhost:3000/api/next-lectures?count=' + lectureCount.value, {
             method: 'GET',
@@ -15,30 +18,12 @@ const getLectures = async () => {
         }
         const data = await response.json();
         lectureList.value = data;
+        loading.value = false;
     } catch (error) {
         console.error('Error fetching lectures:', error);
+        loading.value = false;
     }
 }
-
-const getFiles = async () => {
-    try {
-        const response = await fetch('http://localhost:3000/api/files', {
-            method: 'GET',
-            credentials: 'include'
-        });
-
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
-        console.log('Files:', data);
-    }
-    catch (error) {
-        console.error('Error fetching files:', error);
-    }
-}
-
-getFiles();
 
 function formatTimestamp(timestamp) {
     const date = new Date(timestamp);
@@ -65,6 +50,26 @@ function editLecture(lecture) {
 
 getLectures();
 
+const getFiles = async () => {
+    try {
+        const response = await fetch('http://localhost:3000/api/files?lectureName=hci', {
+            method: 'GET',
+            credentials: 'include'
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        console.log('Files:', data);
+    }
+    catch (error) {
+        console.error('Error fetching files:', error);
+    }
+}
+
+getFiles();
+
 </script>
 
 <style scoped>
@@ -72,6 +77,45 @@ getLectures();
     color: #FF0B55;
     font-weight: bold;
     font-size: 1.2rem;
+}
+
+lectures-list {
+    padding-inline-start: 2rem;
+}
+
+.loading-message {
+    font-size: 1.2rem;
+    padding-inline-start: 2rem;
+}
+
+.spinner_qM83 {
+    animation: spinner_8HQG 1.05s infinite
+}
+
+.spinner_oXPr {
+    animation-delay: .1s
+}
+
+.spinner_ZTLf {
+    animation-delay: .2s
+}
+
+@keyframes spinner_8HQG {
+
+    0%,
+    57.14% {
+        animation-timing-function: cubic-bezier(0.33, .66, .66, 1);
+        transform: translate(0)
+    }
+
+    28.57% {
+        animation-timing-function: cubic-bezier(0.33, 0, .66, .33);
+        transform: translateY(-6px)
+    }
+
+    100% {
+        transform: translate(0)
+    }
 }
 </style>
 
@@ -84,16 +128,14 @@ getLectures();
         <button @click="getLectures">Get Lectures</button>
     </section>
     <section class="lecture-list">
-        <ul v-for="(lecture, index) in lectureList" :key="lecture.id">
+        <ul v-if="!loading" v-for="(lecture, index) in lectureList" :key="lecture.id" class="lectures-list">
             <li>
                 <h3>Subject: {{ lecture.lecturename }}</h3>
                 <p><strong>Speaker:</strong> {{ lecture.professor }}</p>
                 <p><strong>Description:</strong> {{ lecture.description }}</p>
                 <p><strong>Date:</strong> {{ formatTimestamp(lecture.date) }}</p>
-                <p v-if="!lecture.start"><strong>Lecture-Info:</strong> <span class="cancelled"> Lecture is
-                        canceled!!!</span></p>
-                <p v-if="lecture.online"><strong>Online:</strong> <span class="cancelled"> Lecture is online!!!</span>
-                </p>
+                <p v-if="!lecture.start"><strong>Lecture-Info:</strong> <span class="cancelled"> Lecture is canceled!!!</span></p>
+                <p v-if="lecture.online"><strong>Online:</strong> <span class="cancelled"> Lecture is online!!!</span> </p>
                 <p><strong>Room:</strong> {{ lecture.room }}</p>
                 <p>
                     <strong>Infos:</strong>
@@ -103,5 +145,13 @@ getLectures();
             </li>
             <hr />
         </ul>
+        <!-- <p v-if="loading" class="loading-message">Loading lectures... -->
+        <!--     <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> -->
+        <!--         <circle class="spinner_qM83" cx="4" cy="12" r="3" /> -->
+        <!--         <circle class="spinner_qM83 spinner_oXPr" cx="12" cy="12" r="3" /> -->
+        <!--         <circle class="spinner_qM83 spinner_ZTLf" cx="20" cy="12" r="3" /> -->
+        <!--     </svg> -->
+        <!-- </p> -->
     </section>
+
 </template>
