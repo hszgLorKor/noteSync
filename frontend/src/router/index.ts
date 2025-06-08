@@ -4,15 +4,19 @@ import Login from '@/components/Login.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    {
-      path: '/',
-      name: 'Home',
-      component: () => import('@/components/Home.vue')
-    },
+    // {
+    //   path: '/',
+    //   name: 'Home',
+    //   component: () => import('@/components/Home.vue')
+    // },
     {
       path: '/dashboard',
       name: 'Dashboard',
-      component: () => import('@/components/Dashboard.vue')
+      component: () => import('@/components/Dashboard.vue'),
+      children: [
+        { path: 'lectures', component: () => import('@/components/Lectures.vue') },
+        { path: 'files/:subject', component: () => import('@/components/Files.vue') },
+      ]
     },
     {
       path: '/login',

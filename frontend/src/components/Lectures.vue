@@ -20,6 +20,26 @@ const getLectures = async () => {
     }
 }
 
+const getFiles = async () => {
+    try {
+        const response = await fetch('http://localhost:3000/api/files', {
+            method: 'GET',
+            credentials: 'include'
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        console.log('Files:', data);
+    }
+    catch (error) {
+        console.error('Error fetching files:', error);
+    }
+}
+
+getFiles();
+
 function formatTimestamp(timestamp) {
     const date = new Date(timestamp);
 
@@ -35,9 +55,12 @@ function formatTimestamp(timestamp) {
     });
 }
 
-function editLecture(lecture) {
-    console.log('Edit lecture:', lecture);
-    // Implement the edit functionality here
+function editLecture(lecture) {
+
+    console.log('Edit lecture:', lecture);
+
+    // Implement the edit functionality here
+
 }
 
 getLectures();
@@ -67,8 +90,10 @@ getLectures();
                 <p><strong>Speaker:</strong> {{ lecture.professor }}</p>
                 <p><strong>Description:</strong> {{ lecture.description }}</p>
                 <p><strong>Date:</strong> {{ formatTimestamp(lecture.date) }}</p>
-                <p v-if="!lecture.start"><strong>Lecture-Info:</strong> <span class="cancelled"> Lecture is canceled!!!</span></p>
-                <p v-if="lecture.online"><strong>Online:</strong> <span class="cancelled"> Lecture is online!!!</span></p>
+                <p v-if="!lecture.start"><strong>Lecture-Info:</strong> <span class="cancelled"> Lecture is
+                        canceled!!!</span></p>
+                <p v-if="lecture.online"><strong>Online:</strong> <span class="cancelled"> Lecture is online!!!</span>
+                </p>
                 <p><strong>Room:</strong> {{ lecture.room }}</p>
                 <p>
                     <strong>Infos:</strong>

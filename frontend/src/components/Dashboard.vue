@@ -43,7 +43,7 @@ main {
             <Sidebar :toggleSidebar="toggleSidebarRef" />
             <main>
                 <h1>Welcome to {{ name }}</h1>
-                <Lectures />
+                <router-view></router-view>
             </main>
         </div>
     </div>

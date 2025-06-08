@@ -76,7 +76,8 @@ header {
             <h3>Note<span class="lolle-color">Sync</span></h3>
         </div>
         <ul class="links-list">
-            <li><router-link to="/dashboard">Dashboard</router-link></li>
+            <li><router-link to="/dashboard/lectures">Lectures</router-link></li>
+            <li><router-link to="/dashboard/files">Files</router-link></li>
             <li><router-link to="/login">Logout</router-link></li>
         </ul>
         <div class="upload">

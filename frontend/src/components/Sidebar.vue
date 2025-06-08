@@ -8,12 +8,12 @@ const semesterList = ref([
 ])
 
 const subjects = ref([
-    { id: 5, name: 'OOP', semesterId: 2 },
-    { id: 6, name: 'Dis. Mathe', semesterId: 2 },
-    { id: 7, name: 'Rel. Datenbank', semesterId: 2 },
-    { id: 8, name: 'MCI', semesterId: 2 },
-    { id: 9, name: 'Theo. Informatk', semesterId: 2 },
-    { id: 10, name: 'Betriebssys. 2', semesterId: 2 },
+    { id: 5, name: 'OOP', routeName: 'oop', semesterId: 2 },
+    { id: 6, name: 'Dis. Mathe', routeName: 'math', semesterId: 2 },
+    { id: 7, name: 'Rel. Datenbank', routeName: 'rel-db', semesterId: 2 },
+    { id: 8, name: 'MCI', routeName: 'hci', semesterId: 2 },
+    { id: 9, name: 'Theo. Informatk', routeName: 'tcs' , semesterId: 2 },
+    { id: 10, name: 'Betriebssys. 2', routeName: 'ops', semesterId: 2 },
     { id: 11, name: 'Accounting', semesterId: 3 },
     { id: 12, name: 'Business Studies', semesterId: 3 },
     { id: 13, name: 'Marketing', semesterId: 3 },
@@ -57,6 +57,18 @@ ul.semester-list li {
     margin-block: 0 12px;
     padding: 6px 12px;
     border-radius: 4px;
+}
+
+ul.semester-list button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: transparent;
+    color: #0f0f0f;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0;
 }
 
 li a {
@@ -114,7 +126,7 @@ ul.subjects-list li:hover {
     <aside v-if="toggleSidebar">
         <ul class="semester-list">
             <li v-for="sem in semesterList" :key="sem.id">
-                <RouterLink to='/dashboard' @click="showSubjects(sem.id)">
+                <button @click="showSubjects(sem.id)">
                     <svg v-if="sem.showSubjects" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                         transform="rotate(0)">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -135,10 +147,10 @@ ul.subjects-list li:hover {
                         </g>
                     </svg>
                     {{ sem.name }}
-                </RouterLink>
+                </button>
                 <ul v-if="sem.showSubjects" class="subjects-list">
                     <li v-for="sub in getSubjects(sem.id)" :key="sub.id">
-                        <RouterLink to='/dashboard'>{{ sub.name }}</RouterLink>
+                        <RouterLink :to="'/dashboard/files/' + sub.routeName">{{ sub.name }}</RouterLink>
                     </li>
                 </ul>
             </li>

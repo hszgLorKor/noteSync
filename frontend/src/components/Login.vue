@@ -35,8 +35,7 @@ function login(e) {
                 alert(data.error);
             } else {
                 localStorage.setItem('token', data.token);
-                router.push('/dashboard');
-                console.log(data);
+                router.push('/dashboard/lectures');
             }
         });
 
