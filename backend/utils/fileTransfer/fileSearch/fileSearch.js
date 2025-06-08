@@ -30,10 +30,14 @@ export const findFiles = (lectureName, lectureNumber) => {
                     const stats = fs.statSync(filePath);
                     const size = stats.size; // in bytes
                     const type = mime.lookup(file) || 'application/octet-stream'; // Get MIME type
+                    const nameWithoutExtension = file.substring(0, file.lastIndexOf('.'));
+                    const parts = nameWithoutExtension.split('-');
+                    const originalFilename = parts[parts.length - 1];
 
                     // Push file details to the array
                     fileDetails.push({
                         name: file,
+                        originalname: originalFilename,
                         size: size,
                         type: type
                     });
