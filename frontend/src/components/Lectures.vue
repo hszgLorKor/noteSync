@@ -9,7 +9,7 @@ const loading = ref(true);
 const getLectures = async () => {
     loading.value = true;
     try {
-        const response = await fetch('https://lobes.it/api/api/next-lectures?count=' + lectureCount.value, {
+        const response = await fetch('https://lobes.it/api/next-lectures?count=' + lectureCount.value, {
             method: 'GET',
             credentials: 'include'
         });
@@ -52,7 +52,7 @@ getLectures();
 
 const getFiles = async () => {
     try {
-        const response = await fetch('https://lobes.it/api/api/files?lectureName=hci', {
+        const response = await fetch('https://lobes.it/api/files?lectureName=hci', {
             method: 'GET',
             credentials: 'include'
         });
