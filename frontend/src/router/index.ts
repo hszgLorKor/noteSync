@@ -6,7 +6,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/login'
+      component: Login,
     },
     {
       path: '/dashboard',
@@ -17,11 +17,6 @@ const router = createRouter({
         { path: 'files/:subject', component: () => import('@/components/Files.vue') },
       ]
     },
-    {
-      path: '/login',
-      name: 'Login',
-      component: Login
-    }
   ],
 })
 
