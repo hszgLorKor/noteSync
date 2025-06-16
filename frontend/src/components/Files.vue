@@ -102,7 +102,7 @@ getFiles();
         <ul class="file-list">
             <!-- Assuming files is an array of file objects -->
             <li v-for="file in files" :key="file.id">
-                {{ file.name }} - {{ file.size }} bytes
+                {{ file.originalname }} - {{ file.size }} bytes
                 <button class="download-button" @click="downloadFile(file.name)">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
