@@ -28,7 +28,7 @@ function uploadFile() {
     formData.append('lectureName', subject.value);
     formData.append('lectureNumber', lectureNumber.value);
 
-    fetch('http://localhost:3000/api/upload', {
+    fetch('https://lobes.it/api/api/upload', {
         method: 'POST',
         credentials: 'include',
         body: formData
@@ -45,7 +45,7 @@ function uploadFile() {
 // Function to fetch files for the current lecture
 const getFiles = async () => {
     try {
-        const response = await fetch('http://localhost:3000/api/files?lectureName=' + subject.value, {
+        const response = await fetch('https://lobes.it/api/api/files?lectureName=' + subject.value, {
             method: 'GET',
             credentials: 'include'
         });
@@ -64,7 +64,7 @@ const getFiles = async () => {
 }
 
 function downloadFile(fileName) {
-    const url = `http://localhost:3000/api/download/${fileName}`;
+    const url = `https://lobes.it/api/api/download/${fileName}`;
     window.open(url, '_blank');
 }
 

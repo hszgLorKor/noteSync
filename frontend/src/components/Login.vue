@@ -11,7 +11,7 @@ const errorMessage = ref('');
 function login(e) {
     e.preventDefault();
 
-    fetch('http://localhost:3000/login', {
+    fetch('https://lobes.it/api/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
