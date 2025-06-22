@@ -6,7 +6,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      component: Login,
+      redirect: '/dashboard/lectures'
     },
     {
       path: '/dashboard',
@@ -17,6 +17,16 @@ const router = createRouter({
         { path: 'files/:subject', component: () => import('@/components/Files.vue') },
       ]
     },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFound',
+      component: () => import('@/components/NotFound.vue')
+    }
   ],
 })
 

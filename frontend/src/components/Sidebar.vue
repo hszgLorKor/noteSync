@@ -121,6 +121,17 @@ ul.subjects-list li::before {
 ul.subjects-list li:hover {
     background-color: #e0e0e0;
 }
+
+@media (max-width: 768px) {
+    aside {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+    }
+}
 </style>
 <template>
     <aside v-if="toggleSidebar">

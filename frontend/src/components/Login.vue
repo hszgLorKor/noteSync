@@ -69,6 +69,7 @@ form p {
 form label {
     font-size: 0.9em;
 }
+
 </style>
 
 <template>
@@ -84,7 +85,7 @@ form label {
                 <input type="password" required v-model="password" placeholder="Password" id="password" />
             </p>
             <p v-if="showError" style="color: red;">{{ errorMessage }}</p>
-            <button>Login</button>
+            <button class="default">Login</button>
         </form>
     </div>
 </template>

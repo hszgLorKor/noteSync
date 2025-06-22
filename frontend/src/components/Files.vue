@@ -2,10 +2,11 @@
 
 import { ref } from 'vue';
 import { watch } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
 // route params
 const $route = useRoute();
+const router = useRouter();
 const subject = ref($route.params.subject || '');
 
 // route change watcher
@@ -38,6 +39,7 @@ function uploadFile() {
             console.log('Success:', data)
         })
         .catch((error) => {
+            router.push('/login')
             console.error('Error:', error)
         })
 }
@@ -79,23 +81,83 @@ getFiles();
     align-items: center;
     margin-bottom: 10px;
 }
+
 .download-button {
     background: none;
     border: none;
     cursor: pointer;
 }
+
 .download-button svg {
     width: 32px;
     height: 32px;
+}
+
+.file-upload-form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 20px;
+}
+
+.file-upload-form p {
+    border: 1px dashed #ccc;
+    border-radius: 4px;
+    min-height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-block-end: 6px;
+}
+
+.file-upload-form p svg {
+    width: 32px;
+    height: 32px;
+}
+
+input[type="file"]::file-selector-button {
+    border-radius: 4px;
+    padding: 0 16px;
+    height: 40px;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+    margin-right: 16px;
+    transition: background-color 200ms;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #f3f4f6;
+}
+
+input[type="file"]::file-selector-button:active {
+    background-color: #e5e7eb;
 }
 </style>
 
 <template>
     <section class="files">
         <h1>Files for {{ subject }}</h1>
-        <form @submit.prevent="uploadFile()">
-            <input type="file" id="myFile" name="filename" ref="fileInput" />
-            <button type="submit">Upload</button>
+        <form class="file-upload-form" @submit.prevent="uploadFile()">
+            <p class="file-input">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path
+                            d="M3 15C3 17.8284 3 19.2426 3.87868 20.1213C4.75736 21 6.17157 21 9 21H15C17.8284 21 19.2426 21 20.1213 20.1213C21 19.2426 21 17.8284 21 15"
+                            stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                        <path d="M12 16V3M12 3L16 7.375M12 3L8 7.375" stroke="#1C274C" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                </svg>
+                <input type="file" id="myFile" name="filename" ref="fileInput" class="inputfile" />
+            </p>
+            <button type="submit" class="default upload-btn">Upload</button>
         </form>
         <hr />
         <button @click="getFiles">Refresh Files</button>

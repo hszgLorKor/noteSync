@@ -34,6 +34,12 @@ main {
     padding: var(--spacing-normal);
     overflow-y: auto;
 }
+
+@media (max-width: 768px) {
+    .sidebar-main-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
 </style>
 
 <template>

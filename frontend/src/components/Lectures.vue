@@ -1,5 +1,8 @@
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+const route = useRouter();
 
 const lectureList = ref([])
 const lectureCount = ref(2)
@@ -20,6 +23,7 @@ const getLectures = async () => {
         lectureList.value = data;
         loading.value = false;
     } catch (error) {
+        router.push('/login')
         console.error('Error fetching lectures:', error);
         loading.value = false;
     }
@@ -64,6 +68,7 @@ const getFiles = async () => {
         console.log('Files:', data);
     }
     catch (error) {
+        route.push('/login')
         console.error('Error fetching files:', error);
     }
 }
