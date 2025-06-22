@@ -23,7 +23,7 @@ const getLectures = async () => {
         lectureList.value = data;
         loading.value = false;
     } catch (error) {
-        router.push('/login')
+        // router.push('/login')
         console.error('Error fetching lectures:', error);
         loading.value = false;
     }
@@ -67,6 +67,18 @@ lectures-list {
     padding-inline-start: 2rem;
 }
 
+.get-lectures {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.get-lectures select {
+    border-radius: 4px;
+    width: 60%;
+    padding: 5px 0;
+}
+
 .loading-message {
     font-size: 1.2rem;
     padding-inline-start: 2rem;
@@ -85,7 +97,6 @@ lectures-list {
 }
 
 @keyframes spinner_8HQG {
-
     0%,
     57.14% {
         animation-timing-function: cubic-bezier(0.33, .66, .66, 1);
@@ -101,15 +112,24 @@ lectures-list {
         transform: translate(0)
     }
 }
+
+@media (max-width: 768px) {
+    .lectures-list {
+        padding-inline-start: 0;
+    }
+}
 </style>
 
 <template>
     <h2>Upcoming Lectures</h2>
     <p>Get More Lectures</p>
-    <section>
-        <input type="text" name="Lecture Count" id="lecturesCount" placeholder="How many lectures?"
-            v-model="lectureCount" />
-        <button @click="getLectures">Get Lectures</button>
+    <section class="get-lectures">
+        <select name="Lecture Count" id="lecturesCount" placeholder="Select how many lectures you want to get" v-model="lectureCount">
+            <option value="2">2</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+        </select>
+        <button @click="getLectures" class="default">Get Lectures</button>
     </section>
     <section class="lecture-list">
         <ul v-if="!loading" v-for="(lecture, index) in lectureList" :key="lecture.id" class="lectures-list">

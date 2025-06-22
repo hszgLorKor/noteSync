@@ -10,6 +10,7 @@
   --spacing-normal: 16px;
   --spacing-medium: 32px;
   --color-primary: #007bff;
+  --color-primary-hover: #0056b3;
   --color-secondary: #6c757d;
   --background-color: #f8f9fa;
   --color-white: #fff;
@@ -31,7 +32,7 @@ body {
   background-color: var(--background-color);
 }
 
-button, input, textara {
+button, input, textarea, select {
   border: transparent;
   outline: transparent;
   font-family: 'Roboto', sans-serif;
@@ -46,6 +47,12 @@ button.default {
   background-color: var(--color-primary);
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button.default:hover {
+  transform: scale(1.02);
+  background-color: var(--color-primary-hover);
 }
 
 a {
