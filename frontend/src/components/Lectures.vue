@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
-const route = useRouter();
+const router = useRouter();
 
 const lectureList = ref([])
 const lectureCount = ref(2)
