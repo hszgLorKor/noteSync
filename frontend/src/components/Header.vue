@@ -35,6 +35,7 @@ header {
 
 .toggle-sidebar-button {
     cursor: pointer;
+    display: none;
     background-color: transparent;
     padding: 0;
 }
@@ -65,13 +66,18 @@ header {
         padding: 0 var(--spacing-small);
     }
 
-    .links-list {
-        display: none;
-    }
-
     .toggle-sidebar-button {
         display: block;
     }
+
+    .links-list {
+        margin-inline-end: 12px;
+    }
+
+    .links-list .lectures {
+        display: none;
+    }
+
     .logo {
         margin-inline-start: 12px;
     }
@@ -103,7 +109,7 @@ header {
             </router-link>
         </div>
         <ul class="links-list">
-            <li><router-link to="/dashboard/lectures">Lectures</router-link></li>
+            <li><router-link to="/dashboard/lectures" class="lectures">Lectures</router-link></li>
             <li><router-link to="/login">Logout</router-link></li>
         </ul>
     </header>

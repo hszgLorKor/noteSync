@@ -10,7 +10,7 @@ const router = useRouter();
 const toggleSidebarRef = ref(true)
 
 
-function toggleTest(val) {
+function toggleSidebar(val) {
     toggleSidebarRef.value = val.value
 }
 
@@ -44,9 +44,9 @@ main {
 
 <template>
     <div class="wrapper">
-        <Header @toggle-sidebar="(val) => toggleTest(val)" />
+        <Header @toggle-sidebar="(val) => toggleSidebar(val)" />
         <div class="sidebar-main-wrapper">
-            <Sidebar :toggleSidebar="toggleSidebarRef" />
+            <Sidebar :toggleSidebar="toggleSidebarRef" @closeSidebar="(val) => toggleSidebar(val)"/>
             <main>
                 <h1>Welcome to {{ name }}</h1>
                 <router-view></router-view>

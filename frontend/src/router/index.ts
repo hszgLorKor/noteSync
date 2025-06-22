@@ -11,10 +11,11 @@ const router = createRouter({
     {
       path: '/dashboard',
       name: 'Dashboard',
+      props: true,
       component: () => import('@/components/Dashboard.vue'),
       children: [
         { path: 'lectures', component: () => import('@/components/Lectures.vue') },
-        { path: 'files/:subject', component: () => import('@/components/Files.vue') },
+        { path: 'files/:subject', component: () => import('@/components/Files.vue'), props: true },
       ]
     },
     {

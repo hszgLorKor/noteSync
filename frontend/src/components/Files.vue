@@ -7,10 +7,11 @@ import { useRoute, useRouter } from 'vue-router';
 // route params
 const $route = useRoute();
 const router = useRouter();
-const subject = ref($route.params.subject || '');
+const subject = ref($route.query.subjectName || '');
+const highlight = ref(false);
 
 // route change watcher
-watch(() => $route.params.subject, (newSubject) => {
+watch(() => $route.query.subjectName, (newSubject) => {
     subject.value = newSubject;
     getFiles(); // Fetch files when the subject changes
 });
@@ -19,6 +20,8 @@ const fileInput = ref(null);
 
 const files = ref([]);
 const lectureNumber = ref(1);
+
+
 
 // Function to handle file upload
 function uploadFile() {
@@ -36,7 +39,6 @@ function uploadFile() {
     })
         .then(response => response.json())
         .then(data => {
-            console.log('Success:', data)
         })
         .catch((error) => {
             router.push('/login')
@@ -56,7 +58,6 @@ const getFiles = async () => {
             throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        console.log('Files fetched:', data);
         files.value = data.files || []; // Assuming the response contains a 'files' array;
     }
     catch (error) {
@@ -129,6 +130,10 @@ input[type="file"]::file-selector-button {
     transition: background-color 200ms;
 }
 
+.file-input.highlight {
+    border-color: #1C274C !important;
+}
+
 input[type="file"]::file-selector-button:hover {
     background-color: #f3f4f6;
 }
@@ -142,7 +147,7 @@ input[type="file"]::file-selector-button:active {
     <section class="files">
         <h1>Files for {{ subject }}</h1>
         <form class="file-upload-form" @submit.prevent="uploadFile()">
-            <p class="file-input">
+            <p class="file-input" :class="{ 'highlight': highlight }">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -155,7 +160,10 @@ input[type="file"]::file-selector-button:active {
                             stroke-linecap="round" stroke-linejoin="round"></path>
                     </g>
                 </svg>
-                <input type="file" id="myFile" name="filename" ref="fileInput" class="inputfile" />
+                <input type="file" id="myFile" name="filename" ref="fileInput" class="inputfile" 
+                    @dragenter="highlight = true"
+                    @drop="highlight = false"
+                />
             </p>
             <button type="submit" class="default upload-btn">Upload</button>
         </form>

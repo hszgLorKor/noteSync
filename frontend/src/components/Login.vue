@@ -30,7 +30,6 @@ function login(e) {
         }
     }).
         then(data => {
-            console.log(data);
             if (data.error) {
                 alert(data.error);
             } else {

@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue'
 
+const emit = defineEmits(['closeSidebar'])
+
 const semesterList = ref([
     { id: 2, name: 'Semester 2', showSubjects: false },
     { id: 3, name: 'Semester 3', showSubjects: false },
@@ -12,7 +14,7 @@ const subjects = ref([
     { id: 6, name: 'Dis. Mathe', routeName: 'math', semesterId: 2 },
     { id: 7, name: 'Rel. Datenbank', routeName: 'rel-db', semesterId: 2 },
     { id: 8, name: 'MCI', routeName: 'mci', semesterId: 2 },
-    { id: 9, name: 'Theo. Informatk', routeName: 'tik' , semesterId: 2 },
+    { id: 9, name: 'Theo. Informatk', routeName: 'tik', semesterId: 2 },
     { id: 10, name: 'Betriebssys. 2', routeName: 'bts', semesterId: 2 },
     { id: 11, name: 'Accounting', semesterId: 3 },
     { id: 12, name: 'Business Studies', semesterId: 3 },
@@ -35,6 +37,12 @@ function getSubjects(id) {
 const props = defineProps({
     toggleSidebar: Boolean
 })
+
+function closeSidebar() {
+    if (window.innerWidth < 768) {
+        emit('closeSidebar', false)
+    }
+}
 
 </script>
 
@@ -131,6 +139,10 @@ ul.subjects-list li:hover {
         height: 100%;
         z-index: 1000;
     }
+
+    ul.subjects-list li::before {
+        width: 3%;
+    }
 }
 </style>
 <template>
@@ -160,8 +172,11 @@ ul.subjects-list li:hover {
                     {{ sem.name }}
                 </button>
                 <ul v-if="sem.showSubjects" class="subjects-list">
-                    <li v-for="sub in getSubjects(sem.id)" :key="sub.id">
-                        <RouterLink :to="'/dashboard/files/' + sub.routeName">{{ sub.name }}</RouterLink>
+                    <li v-for="sub in getSubjects(sem.id)" :key="sub.id" @click="closeSidebar">
+                        <RouterLink :to="{
+                            path: '/dashboard/files/' + sub.routeName,
+                            query: { subjectName: sub.name },
+                        }">{{ sub.name }}</RouterLink>
                     </li>
                 </ul>
             </li>
