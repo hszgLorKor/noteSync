@@ -23,7 +23,7 @@ const getLectures = async () => {
         lectureList.value = data;
         loading.value = false;
     } catch (error) {
-        // router.push('/login')
+        router.push('/login')
         console.error('Error fetching lectures:', error);
         loading.value = false;
     }
