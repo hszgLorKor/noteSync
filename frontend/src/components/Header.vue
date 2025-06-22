@@ -14,6 +14,13 @@ function toggleSidebarFunc() {
     toggleSidebar.value = !toggleSidebar.value
     emit('toggle-sidebar', toggleSidebar)
 }
+
+function hideSidebar() {
+    if (window.innerWidth < 768) {
+        toggleSidebar.value = false
+        emit('toggle-sidebar', toggleSidebar)
+    }
+}
 </script>
 <style scoped>
 header {
@@ -104,7 +111,7 @@ header {
                     </g>
                 </svg>
             </button>
-            <router-link to="/dashboard/lectures" class="logo">
+            <router-link to="/dashboard/lectures" class="logo" @click="hideSidebar()">
                 <h3>Note<span class="lolle-color">Sync</span></h3>
             </router-link>
         </div>
