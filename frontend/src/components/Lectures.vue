@@ -54,27 +54,6 @@ function editLecture(lecture) {
 
 getLectures();
 
-const getFiles = async () => {
-    try {
-        const response = await fetch('https://lobes.it/api/files?lectureName=hci', {
-            method: 'GET',
-            credentials: 'include'
-        });
-
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
-        console.log('Files:', data);
-    }
-    catch (error) {
-        route.push('/login')
-        console.error('Error fetching files:', error);
-    }
-}
-
-getFiles();
-
 </script>
 
 <style scoped>
