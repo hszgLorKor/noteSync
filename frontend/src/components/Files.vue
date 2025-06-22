@@ -7,11 +7,18 @@ import { useRoute, useRouter } from 'vue-router';
 // route params
 const $route = useRoute();
 const router = useRouter();
-const subject = ref($route.query.subjectName || '');
+const subjectName = ref($route.query.subjectName || '');
+const subject = ref($route.params.subject || "");
+
 const highlight = ref(false);
 
 // route change watcher
 watch(() => $route.query.subjectName, (newSubject) => {
+    subject.value = newSubject;
+    getFiles(); // Fetch files when the subject changes
+});
+
+watch(() => $route.params.subject, (newSubject) => {
     subject.value = newSubject;
     getFiles(); // Fetch files when the subject changes
 });
