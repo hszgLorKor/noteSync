@@ -100,13 +100,12 @@ getFiles();
 <style scoped>
 .files-list {
     max-width: 98vw;
+    overflow-x: auto;
 }
 
 table.files {
-    width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    overflow-x: auto;
 }
 
 table.files th,
