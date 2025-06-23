@@ -123,7 +123,7 @@ table.files tr:hover {
     background-color: #ddd;
 }
 
-.download-button {
+.download-button, .delete-button {
     background: none;
     border: none;
     cursor: pointer;
