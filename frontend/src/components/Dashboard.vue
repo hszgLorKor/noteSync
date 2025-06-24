@@ -9,6 +9,23 @@ const name = ref('Dashboard')
 const router = useRouter();
 const toggleSidebarRef = ref(true)
 
+function authUser() {
+    try {
+        const response = await fetch('https://lobes.it/api/dashboard', {
+            method: 'GET',
+            credentials: 'include'
+        });
+        if (!response.ok) {
+            router.push('/login');
+            return;
+        }
+    } catch (error) {
+        console.error('Error fetching user authentication:', error);
+        router.push('/login');
+    }
+}
+
+authUser();
 
 function toggleSidebar(val) {
     toggleSidebarRef.value = val.value
